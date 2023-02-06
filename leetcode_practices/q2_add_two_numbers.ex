@@ -1,12 +1,12 @@
 # Definition for singly-linked list.
-#
-# defmodule ListNode do
-#   @type t :: %__MODULE__{
-#           val: integer,
-#           next: ListNode.t() | nil
-#         }
-#   defstruct val: 0, next: nil
-# end
+
+defmodule ListNode do
+  @type t :: %__MODULE__{
+          val: integer,
+          next: ListNode.t() | nil
+        }
+  defstruct val: 0, next: nil
+end
 
 defmodule Solution do
   @moduledoc """
@@ -38,7 +38,56 @@ defmodule Solution do
   It is guaranteed that the list represents a number that does not have leading zeros.
 
   """
+
+  @doc """
+
+  # First try
+  Input: l1 = [2,4,3], l2 = [5,6,4]
+  Output: [7,0,8]
+  Explanation: 342 + 465 = 807.
+  Example 2:
+
+  Solution.add_two_numbers([2,4,3], [5,6,4])
+  Solution.add_two_numbers([9,9,9,9,9,9,9], [9,9,9,9])
+
+  """
   @spec add_two_numbers(l1 :: ListNode.t() | nil, l2 :: ListNode.t() | nil) :: ListNode.t() | nil
   def add_two_numbers(l1, l2) do
+    %{l1: l1, l2: l2} |> IO.inspect(label: "ini")
+
+    case sum_2_lists(l1, l2, [])
+         |> Enum.reduce([[], 0], fn n, [l, a] = acc ->
+           n = n + a
+
+           IO.inspect(%{n: n, acc: acc}, label: "n")
+
+           if n < 10 do
+             [l ++ [n], 0]
+             #  |> IO.inspect(label: "case 1")
+           else
+             [x, n] = n |> Integer.to_string() |> String.codepoints()
+
+             [l ++ [n |> String.to_integer()], x |> String.to_integer()]
+             #  |> IO.inspect(label: "case 2")
+           end
+         end) do
+      [ans, 0] -> ans
+      [ans, f] -> ans ++ [f]
+    end
+  end
+
+  defp sum_2_lists([], [], tmp), do: tmp
+  defp sum_2_lists([h1 | t1], [], tmp), do: sum_2_lists(t1, [], tmp ++ [h1])
+  defp sum_2_lists([], [h2 | t2], tmp), do: sum_2_lists([], t2, tmp ++ [h2])
+
+  defp sum_2_lists([h1 | t1], [h2 | t2], tmp) do
+    # (tmp ++ [(h1 + h2) |> Integer.to_string()]) |> IO.inspect(label: "tmp")
+    # [h1 + h2] |> IO.inspect(label: "tmp")
+    # %{h1: h1, t1: t1, h2: h2, t2: t2, tmp: tmp} |> IO.inspect(label: "xxxxx")
+    sum_2_lists(t1, t2, tmp ++ [h1 + h2])
   end
 end
+
+Solution.add_two_numbers([2, 4, 3], [5, 6, 4])
+Solution.add_two_numbers([0], [0])
+Solution.add_two_numbers([9, 9, 9, 9, 9, 9, 9], [9, 9, 9, 9])

@@ -3,5 +3,5 @@ Simply run iex `filename`.
 
 For example:
 ```sh
-iex q1_two_sum.ex
+iex ./leetcode_practices/q1_two_sum.ex
 ```
