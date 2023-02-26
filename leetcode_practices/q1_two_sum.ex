@@ -2,7 +2,7 @@ defmodule Solution do
   @moduledoc """
   To start, run this:
   iex q1_two_sum.ex
-  Solution.two_sum_s1([3,1,2], 5)
+  Solution.two_sum([3,1,2], 5)
   """
 
   def check([h | t], count, map, target) when is_map_key(map, target - h) do
@@ -35,8 +35,8 @@ defmodule Solution do
     check(t, count + 1, Map.put(map, h, count), target)
   end
 
-  @spec two_sum_s1(nums :: [integer], target :: integer) :: [integer]
-  def two_sum_s1(nums, target) do
+  @spec two_sum(nums :: [integer], target :: integer) :: [integer]
+  def two_sum(nums, target) do
     IO.inspect(%{nums: nums, target: target}, label: "_input")
     check(nums, 0, %{}, target)
   end
@@ -103,13 +103,13 @@ defmodule Solution do
     IO.inspect(nums, label: "[ANSWER]")
   end
 
-  @spec two_sum(nums :: [integer], target :: integer) :: [integer]
-  def two_sum(nums, target) do
-    Enum.reduce_while(nums, {0, 0}, fn x, {n, i} = acc ->
-      IO.inspect(%{x: x, acc: acc}, label: "x")
-      if target == x + n, do: {:halt, [i - 1, i]}, else: {:cont, {x, i + 1}}
-    end)
-  end
+  # @spec two_sum(nums :: [integer], target :: integer) :: [integer]
+  # def two_sum(nums, target) do
+  #   Enum.reduce_while(nums, {0, 0}, fn x, {n, i} = acc ->
+  #     IO.inspect(%{x: x, acc: acc}, label: "x")
+  #     if target == x + n, do: {:halt, [i - 1, i]}, else: {:cont, {x, i + 1}}
+  #   end)
+  # end
 end
 
 # Input: nums = [2,7,11,15], target = 9
@@ -129,4 +129,4 @@ end
 # Solution.two_sum_backup([4, 1, 2, 3, 5], 9)
 # Solution.two_sum_backup([2, 4, 6, 5, 1], 9)
 # Solution.two_sum_backup([3, 1, 2], 5)
-Solution.two_sum_s1([3, 1, 2], 5)
+# Solution.two_sum_s1([3, 1, 2], 5)
