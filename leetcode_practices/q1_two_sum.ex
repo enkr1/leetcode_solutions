@@ -2,46 +2,29 @@ defmodule Solution do
   @moduledoc """
   To start, run this:
   iex q1_two_sum.ex
+
   Solution.two_sum([3,1,2], 5)
+  Solution.two_sum([3, 3], 6)
+  Solution.two_sum([4, 1, 2, 3, 5], 9)
+  Solution.two_sum([2, 4, 6, 5, 1], 9)
+  Solution.two_sum([3, 1, 2], 5)
+
   """
+  def sort_in_map([], _target, nb, map), do: map
 
-  def check([h | t], count, map, target) when is_map_key(map, target - h) do
-    IO.inspect(
-      %{
-        _h: h,
-        _t: t,
-        count: count,
-        map: map,
-        "map[target - h]": map[target - h]
-      },
-      label: "_1"
-    )
+  def sort_in_map([h | t], target, nb, map) when map |> is_map_key(target - h),
+    do: [map |> Map.get(target - h), nb]
 
-    [map[target - h], count]
-  end
-
-  def check([h | t], count, map, target) do
-    IO.inspect(
-      %{
-        _h: h,
-        _t: t,
-        next_count: count + 1,
-        map: map,
-        "Map.put(map, h, count)": Map.put(map, h, count)
-      },
-      label: "_2"
-    )
-
-    check(t, count + 1, Map.put(map, h, count), target)
-  end
+  def sort_in_map([h | t] = l, target, nb, map),
+    do: sort_in_map(t, target, nb + 1, map |> Map.put(h, nb))
 
   @spec two_sum(nums :: [integer], target :: integer) :: [integer]
   def two_sum(nums, target) do
-    IO.inspect(%{nums: nums, target: target}, label: "_input")
-    check(nums, 0, %{}, target)
+    sort_in_map(nums, target, 0, %{})
   end
 
   # ------------------------------------------------------------
+
   # My attempt
   def two_sum_backup(nums, target) do
     # Expected [0, 1]
@@ -124,7 +107,7 @@ end
 # Input: nums = [3,3], target = 6
 # Output: [0,1]
 # Solution.two_sum([3, 3], 6)
-
+#
 # Solution.two_sum_backup([3, 3], 6)
 # Solution.two_sum_backup([4, 1, 2, 3, 5], 9)
 # Solution.two_sum_backup([2, 4, 6, 5, 1], 9)
