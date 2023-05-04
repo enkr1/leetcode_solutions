@@ -1,7 +1,22 @@
-# How to run?
-Simply run iex `filename`.
+# Leetcode Solutions
 
-For example:
+1. [Two Sum](./1/)
+2. [Add Two Numbers](./2/)
+3. -
+4. -
+5. [Longest Palindromic Substring](./5/)
+
+---
+## Run for JS
 ```sh
-iex ./leetcode_practices/q1_two_sum.ex
+node ./.../solution.js
 ```
+
+---
+
+## Run for Elixir
+```sh
+iex ./.../solution.ex
+```
+
+---
