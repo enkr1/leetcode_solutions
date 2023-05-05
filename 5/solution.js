@@ -4,7 +4,7 @@
  */
 const longestPalindrome = (s) => {
   s = reformat(s);
-  let l = Array(s.length).fill(0), highest_length = 0, center = 0;
+  let tmp_count = 0, highest_length = 0, center = 0;
 
   for (let i = 0; i < s.length; i++) {
     for (let j = 0; j < i; j++) {
@@ -13,13 +13,15 @@ const longestPalindrome = (s) => {
 
       if (left !== right) break;
 
-      l[i] = l[i] + 1;
+      tmp_count++;
 
-      if (l[i] > highest_length) {
-        highest_length = l[i];
+      if (tmp_count > highest_length) {
+        highest_length = tmp_count;
         center = i;
       }
     }
+
+    tmp_count = 0;
   }
 
   return s.substring((center - highest_length), (center + highest_length)).replace(/#/g, "");
