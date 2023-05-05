@@ -28,12 +28,11 @@ const longestPalindrome = (s) => {
 };
 
 const reformat = (s) => {
-  s = s.split('');
-  let rs = "";
+  let rs = "#";
 
-  for (let i = 0; i < s.length; i++) {
-    rs += `#${s[i]}`;
+  for (let char of s) {
+    rs += `${char}#`;
   }
 
-  return `${rs}#`;
+  return rs;
 }

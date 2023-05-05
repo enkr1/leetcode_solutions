@@ -3,18 +3,21 @@
  * @return {string}
  */
 const longestPalindrome = (s) => {
-  original_s = s;
+  if (1 === s.length) return s;
+
   s = reformat(s);
 
-  let l = Array(s.length).fill(0), highest_length = 0, maxRight = 0, center = 0;
+  let tmp_count = 0, highest_length = 0, maxRight = 0, center = 0;
 
-  console.log(`s: ${s}, l: ${l}, h: ${highest_length}, center: ${center}, right: ${maxRight}, sl: ${s.length}`);
+  console.log(`s: ${s}, h: ${highest_length}, center: ${center}, right: ${maxRight}, sl: ${s.length}`);
 
   for (let i = 0; i < s.length; i++) {
     // left = (i * 2) - i;
     // console.log("___ : " + s[left] + ",  i: " + i + ", left: " + left)
+    console.log("_________________________________")
     console.log("----> i: " + i + ", s[i]: " + s[i])
-    // left
+
+    let new_i = i;
     for (let j = 0; j < i; j++) {
       console.log("---> i: " + i + ", j: " + j)
       left = s[i - (j + 1)];
@@ -22,29 +25,37 @@ const longestPalindrome = (s) => {
       console.log("left: (" + (i - (j + 1)) + ") - " + left)
       console.log("right: (" + (i + (j + 1)) + ") - " + right)
 
+      // if (i < maxRight) ...
+
       if (left !== right) {
-        console.log("break bc the first neighbour already unmatched")
+        console.log("break when the neighbour is unmatched")
         break;
       }
 
       console.log("ctn ...")
-      // console.log(l[i])
 
-      l[i] = l[i] + 1;
-      if (l[i] > highest_length) {
-        highest_length = l[i];
+      tmp_count++;
+
+      if (tmp_count > highest_length) {
+        console.log("--------> maybe highest: " + tmp_count)
+        highest_length = tmp_count;
         center = i;
+        maxRight = i + tmp_count;
+        console.log("--------> maxRight: " + maxRight)
+        // new_i = i + (tmp_count - 1);
+        // console.log("new_i: " + i)
       }
-
-      console.log(l[i])
     }
+    // i = new_i;
+    // console.log("i += tmp_count: " + (i));
 
+    tmp_count = 0;
   }
 
-  console.log("finally list of match count: " + l)
   console.log("highest_length: " + highest_length)
   console.log("center: " + center)
   s_part = s.substring((center - highest_length), (center + highest_length));
+  console.log("s_part: "+s_part)
   answer = s_part.replace(/#/g, "");
   console.log(answer);
   return answer;
@@ -62,4 +73,6 @@ const reformat = (s) => {
 }
 
 longestPalindrome("NBNNBR")
+// longestPalindrome("cbbd")
+// longestPalindrome("ccc")
 // longestPalindrome("qweeeewqwe")
