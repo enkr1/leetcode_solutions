@@ -6,8 +6,10 @@ const lengthOfLongestSubstring = (s) => {
   // Put into a map {index: 0, char: "a", nbAppeared: 1}
   let tmpMap = new Map(),
     charList = s.split(''),
-    tmpResult = [], // Deciding result
+    tmpList = [], // Deciding result
     result = [];
+
+  var prevTmpList = [];
 
   for (let i = 0; i < charList.length; i++) {
     // Might need extra handle if there is upper/lower case.
@@ -15,27 +17,33 @@ const lengthOfLongestSubstring = (s) => {
       existCharMap = tmpMap.get(currChar);
 
     if (existCharMap) {
-      tmpResult = [currChar]; // Reset the tmp result
+      if (tmpList.includes(currChar)) {
+        if (tmpList.length > prevTmpList.length) prevTmpList = [...tmpList];
+
+        let nbRemove = tmpList.indexOf(currChar);
+        for (let j = 0; j <= nbRemove; j++) {
+          tmpList.shift();
+        }
+        tmpList.push(currChar);
+
+      } else {
+        for (let j = 0; j <= tmpList.indexOf(currChar); j++) {
+          tmpList.shift();
+        }
+        tmpList.push(currChar);
+      }
 
       // Update values
       existCharMap.nbAppeared += 1;
       tmpMap.set(currChar, existCharMap);
     } else {
       // Set it into the map if doesnt exists
-      tmpMap.set(currChar, { index: i, nbAppeared: 1 })
-      tmpResult.push(currChar)
+      tmpMap.set(currChar, { index: i, nbAppeared: 1 });
+      tmpList.push(currChar)
     }
 
-    if (tmpResult.length > result.length) result = tmpResult;
+    result = prevTmpList.length > tmpList.length ? prevTmpList : tmpList;
   }
 
-
-  console.log("final output:")
-  console.log(tmpMap)
-  console.log(result.join(""))
-  return result.join("");
+  return result.length;
 };
-
-// lengthOfLongestSubstring("abcabcbb") // abc
-// lengthOfLongestSubstring("bbbbb") // b
-// lengthOfLongestSubstring("pwwkew") // wke
