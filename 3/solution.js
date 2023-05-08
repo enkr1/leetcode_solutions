@@ -5,20 +5,19 @@
 const lengthOfLongestSubstring = (s) => {
   let charList = s.split(''),
     tmpList = [],
-    result = [],
-    prevTmpList = [];
+    prevTmpList = [],
+    result = [];
 
   for (let i = 0; i < charList.length; i++) {
-    let currChar = charList[i];
 
-    if (tmpList.includes(currChar) && tmpList.length > prevTmpList.length) prevTmpList = [...tmpList];
+    if (tmpList.includes(charList[i]) && tmpList.length > prevTmpList.length) prevTmpList = [...tmpList];
 
-    let nbRemove = tmpList.indexOf(currChar);
+    let nbRemove = tmpList.indexOf(charList[i]);
     for (let j = 0; j <= nbRemove; j++) {
       tmpList.shift();
     }
 
-    tmpList.push(currChar);
+    tmpList.push(charList[i]);
 
     result = prevTmpList.length > tmpList.length ? prevTmpList : tmpList;
   }
