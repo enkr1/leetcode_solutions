@@ -4,47 +4,26 @@
  */
 const numIslands = (grid) => {
   console.log(grid)
-  // let islandList = [];
   let map = {};
 
   // mapify the list - all of the island
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length; j++) {
-      if ("1" === grid[i][j]) {
-        // islandList = [...islandList, { x: j, y: i }]
-        // map.set({ x: j, y: i }, grid[i][j])
-        map[`${j}${i}`] = { x: j, y: i };
-      }
+      if ("1" === grid[i][j]) map[`${j}${i}`] = { x: j, y: i };
     }
   }
 
-  // console.log(islandList)
-  // console.log("debug")
   console.log(map)
-
-  // console.log(Object.keys({}).length)
-  // let first = map["11"]
-  // let processMap = { ...map };
-
-  // a = ['11', '22']
-  // b = ['33', '44']
-  // console.log([...a, b])
-  // console.log([...a, ...b])
-  // console.log([...[a]])
-  // delete processMap["11"]
-  let obj = processMap(map, [], {}, 0)
-  console.log("number of islands")
-  console.log(obj)
-
+  let nbOfIslands = processMap(map, [], {}, 0)
+  console.log("nbOfIslands")
+  console.log(nbOfIslands)
+  return nbOfIslands;
 };
 
 const processMap = (map, curr_list, pointer_map, max_key) => {
   if (0 === Object.keys(map).length) {
-    console.log("-> object 0 now:")
-    console.log("pointer_map")
+    console.log("Before ending - pointer_map")
     console.log(pointer_map)
-    console.log("xx")
-    console.log()
 
     return new Set(Object.values(pointer_map)).size;
   }
@@ -53,7 +32,6 @@ const processMap = (map, curr_list, pointer_map, max_key) => {
   console.log(`==============> first key: ${Object.keys(map)[0]}, max_key: ${max_key}, value: `)
   console.log(first)
 
-  // TODO: Think of a way to point back which list I can join as a group.
   console.log("~> top")
   top = findNeighbours(first, { ...map, ...pointer_map }, 'y', 0, -1, [])
   console.log(top)
@@ -85,19 +63,12 @@ const processMap = (map, curr_list, pointer_map, max_key) => {
     pointer_map[Object.keys(map)[0]] = new_max_key;
     console.log("Deleting ... " + Object.keys(map)[0]);
     delete map[Object.keys(map)[0]];
-    // result = [...result, [curr_list]]; // -> [[]] Layer it 1 level deeper.
-    // console.log("~> A: curr_list before cleaning")
-    // curr_list = [];
-    // console.log(curr_list)
   } else {
-    // curr_list = [...curr_list, ...[Object.keys(map)[0]], ...top, ...right, ...bottom, ...left];
     curr_list = [...[Object.keys(map)[0]], ...top, ...right, ...bottom, ...left];
 
     console.log("~ B: curr_list before cleaning")
-
     console.log(curr_list)
 
-    // TODO: Find exists
     for (let i = 0; i < curr_list.length; i++) {
       if (pointer_map[curr_list[i]]) {
         console.log("!!!!!!!!!!!! it is in the pointer !!!!!!!!!!!!")
