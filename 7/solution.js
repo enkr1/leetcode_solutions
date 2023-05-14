@@ -3,24 +3,17 @@
  * @return {number}
  */
 const reverse = (x) => {
-  return reverseCharList(x.toString().split(''), 0, 1, null, false);
+  return (x < 0) ? reverseCharList((-x).toString().split(''), 0, 1, null) * -1 : reverseCharList(x.toString().split(''), 0, 1, null);
 };
 
-const reverseCharList = (charList, i, factor, result, isNeg) => {
-  if (undefined === charList[i]) {
-    if ((2 ** 31) <= result) return 0;
-    return isNeg ? result * -1 : result;
-  }
-
-  if ("-" === charList[i]) {
-    isNeg = true;
-    i++;
-    return reverseCharList(charList, i, factor, result, isNeg);
-  }
+const reverseCharList = (charList, i, factor, result) => {
+  if ((2 ** 31) <= result) return 0;
+  if (undefined === charList[i]) return result;
 
   result += (parseInt(charList[i]) * factor);
   factor *= 10;
   i++;
 
-  return reverseCharList(charList, i, factor, result, isNeg);
+  return reverseCharList(charList, i, factor, result);
 }
+
