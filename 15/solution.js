@@ -3,19 +3,16 @@
  * @return {number[][]}
  */
 const threeSum = (nums) => {
-  if (nums.every((num) => num === 0)) return [[0, 0, 0]];
-
   let result = [];
 
   for (let i = 0; i < nums.length; i++) {
-    let tmpList = [...nums], tmpMap = {};
+    let tmpList = [...nums];
     tmpList.splice(i, 1);
 
-    for (let j = 0; j < tmpList.length; j++) {
-      tmpMap[tmpList[j]] = tmpList[j]
-    }
+    let b = (0 === nums[i]) ? 0 : -nums[i];
+    let c = nums[i] + b;
 
-    result = findGroup(Math.min(...nums), Math.max(...nums), nums[i], -nums[i], nums[i] + (-nums[i]), tmpMap, result);
+    result = findGroup(Math.min(...nums), Math.max(...nums), nums[i], b, c, tmpList, result);
   }
 
   return removeDuplicates(result);
@@ -62,20 +59,21 @@ function removeDuplicates(list) {
   return uniqueList;
 }
 
-const findGroup = (min, max, a, b, c, map, result) => {
+const findGroup = (min, max, a, b, c, list, result) => {
   if (b > max || c < min) return result;
-  let tmpMap = { ...map }, tmp = [a];
 
-  if (tmpMap[b]) {
-    tmp = [...tmp, tmpMap[b]];
-    delete tmpMap[b];
+  let tmpList = [...list], tmp = [a];
 
-    if (tmpMap[c]) {
-      result.push([...tmp, tmpMap[c]])
-      delete tmpMap[c];
+  if (tmpList.includes(b)) {
+    tmp = [...tmp, b];
+    tmpList.splice(tmpList.indexOf(b), 1)
+
+    if (tmpList.includes(c)) {
+      result.push([...tmp, c])
+      tmpList.splice(tmpList.indexOf(c), 1)
     }
   }
 
-  return findGroup(min, max, a, b + 1, c - 1, map, result);
+  return findGroup(min, max, a, b + 1, c - 1, list, result);
 
 }

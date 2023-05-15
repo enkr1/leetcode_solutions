@@ -3,24 +3,25 @@
  * @return {number[][]}
  */
 const threeSum = (nums) => {
-  if (list.every((num) => num === 0)) return [[0, 0, 0]];
+
   let result = [];
   for (let i = 0; i < nums.length; i++) {
-    let tmpList = [...nums], tmpMap = {};
+    let tmpList = [...nums];
+    // , tmpMap = {};
     tmpList.splice(i, 1);
 
-    let b = -nums[i];
+    let b = (0 === nums[i]) ? 0 : -nums[i];
     let c = nums[i] + b;
     console.log(`i: ${i}, nums[i]: ${nums[i]}, b: ${b}, c: ${c}`);
     console.log(tmpList)
 
-    // Build a hash map except the current item in order to find the other 2 group mates.
-    for (let j = 0; j < tmpList.length; j++) {
-      tmpMap[tmpList[j]] = tmpList[j]
-    }
+    // // Build a hash map except the current item in order to find the other 2 group mates.
+    // for (let j = 0; j < tmpList.length; j++) {
+    //   tmpMap[tmpList[j]] = tmpList[j]
+    // }
+    // console.log(tmpMap)
 
-    console.log(tmpMap)
-    result = findGroup(Math.min(...nums), Math.max(...nums), nums[i], b, c, tmpMap, result);
+    result = findGroup(Math.min(...nums), Math.max(...nums), nums[i], b, c, tmpList, result);
   }
 
   // console.log("result")
@@ -72,31 +73,33 @@ function removeDuplicates(list) {
   return uniqueList;
 }
 
-const findGroup = (min, max, a, b, c, map, result) => {
+const findGroup = (min, max, a, b, c, list, result) => {
   if (b > max || c < min) return result;
 
   console.log(`-> min: ${min}, max: ${max}, a: ${a}, b: ${b}, c: ${c}, result: ${result}`);
-  let tmpMap = { ...map }, tmp = [a];
-  console.log(tmpMap)
+  // let tmpMap = { ...map }, tmp = [a];
+  let tmpList = [...list], tmp = [a];
 
-  if (tmpMap[b]) {
-    console.log("--> tmpMap[b] Exist!")
-    tmp = [...tmp, tmpMap[b]];
+  if (tmpList.includes(b)) {
+    console.log("--> tmpList[b] Exist!")
+    console.log(b)
+    tmp = [...tmp, b];
 
-    delete tmpMap[b];
+    tmpList.splice(tmpList.indexOf(b), 1)
 
-    if (tmpMap[c]) {
-      console.log("---> tmpMap[c] Exist!")
+    if (tmpList.includes(c)) {
+      console.log("---> tmpList[c] Exist!")
+      console.log(c)
 
-      result.push([...tmp, tmpMap[c]])
-      delete tmpMap[c];
+      result.push([...tmp, c])
+      tmpList.splice(tmpList.indexOf(c), 1)
 
       console.log("----> result");
       console.log(result);
     }
   }
 
-  return findGroup(min, max, a, b + 1, c - 1, map, result);
+  return findGroup(min, max, a, b + 1, c - 1, list, result);
 
 }
 
