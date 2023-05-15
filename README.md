@@ -11,7 +11,9 @@
 ---
 
 > solution.js - The solution I submitted
+
 > my_solution.js - My attemp with logs and comments
+
 > o_solution.js - Online/others' solutions
 
 ---
