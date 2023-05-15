@@ -8,177 +8,25 @@ const generateParenthesis = (n) => {
   let processString = `${"(".repeat(n)}${")".repeat(n)}`
   console.log(`input: ${n} - processString - ${processString}`)
 
-  let result = [];
-  // Process wrapper
-
-  let ref = [
-    "())(()",
-    "())()(",
-
-    "()(())",
-    "()()()",
-    "()())(",
-
-
-    "((()))",
-    "(()())",
-    "(())()",
-    "(()))(",
-
-
-    ")((())",
-    ")(()()",
-    ")(())(",
-
-    ")()(()",
-    ")()()("
-  ]
-
-  for (let i = 0; i < n - 1; i++) {
-    let pattern = "";
-    for (let k = 0; k < i; k++) {
-      if (k > 0) return;
-      pattern += ")";
-    }
-
-    pattern += "(";
-
-    for (let h = 0; h < (n / 2); h++) {
-      console.log(`------> h - pattern - h: ${h}`)
-      pattern += ")";
-      console.log(pattern)
-    }
-
-    for (let j = 0; j < (n / 2) - 1; j++) {
-      console.log(`----> j - pattern - j: ${j} - n: ${n}`)
-      // console.log(pattern)
-      pattern += "(";
-      console.log(pattern)
-      // pattern += ")";
-      console.log("Before last - pattern")
-      console.log(pattern)
-
-      for (let l = 0; l < (n / 2) - 1; l++) {
-        console.log(`--> l - pattern - l: ${l}`)
-        console.log(pattern)
-        pattern += ")";
-        console.log(pattern)
-      }
-
-    }
-
-    // console.log("LAST - pattern");
-    // console.log(pattern);
-    // result = [...result, pattern]
-    // console.log(`(${ pattern })`);
-  }
+  let result = process(n, n, "", []);
 
   console.log("result")
   console.log(result)
-  //
-  //   return `()`;
-
 
   return;
 };
-// 0
-// "((()))"
-// "()(())"
-// "(())()"
 
-// 1
-// "((()))"
-// -> "(())"
-// "()()"
-// "(()())"
+// nbOpen > NbClose
+// Only can add closed when open is > closed
+const process = (open, close, pattern, result) => {
+  // exit
+  if (open > close) return result;
+  if (0 === open && 0 === close) return result.push(pattern);
+  if (open > 0) process(open - 1, close, `${pattern}(`, result);
+  if (close > 0) process(open, close - 1, `${pattern})`, result);
 
-// 2
-// "(())"
-// -> "()"
-// "()()"
-// "()()()"
+  return result;
+}
 
 // generateParenthesis(4);
-generateParenthesis(4);
-// 4 -> 14
-// [
-//   "(((())))",
-//   "((()()))",
-//   "((())())", x
-//   "((()))()",
-//   "(()(()))", x
-//   "(()()())",
-//   "(()())()", x
-//   "(())(())",
-//   "(())()()", x
-//   "()((()))",
-//   "()(()())", x
-//   "()(())()", x
-//   "()()(())", x
-//   "()()()()"
-// ]
-// [
-//   "((()))",
-//   "(()())",
-//   "(())()",
-//   "(()))(",
-//   "()(())",
-//   "()()()",
-//   "()())(",
-//   "())(()",
-//   "())()(",
-//   ")((())",
-//   ")(()()",
-//   ")(())(",
-//   ")()(()",
-//   ")()()("
-// ]
-//
-// [
-//   "((()))",
-//   "(()())",
-//   "(())()",
-//   "(()))(",
-//   "()(())",
-//   "()()()",
-//   "()())(",
-//   "())(()",
-//   "())()(",
-//   ")((())",
-//   ")(()()",
-//   ")(())(",
-//   ")()(()",
-//   ")()()("
-// ]
-//
-//
-//
-//
-// [
-//   "(((())))",
-//   "()())",
-//   "()()()()",
-//   "(())(())",
-//   "()((()))",
-//   "((()))()"
-// ]
-
-
-
-// "(" ")"
-
-// "((()))",
-// "(()())",
-// "()()()",
-// "(())()",
-// "()(())"
-
-// "()((()))"
-// "((()))()"
-// "()()(())"
-// "(())()()"
-// "()()()()"
-
-// "((((()))))"
-// "()(((())))"
-// "(((())))()"
+generateParenthesis(3);
