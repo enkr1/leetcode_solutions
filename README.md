@@ -1,11 +1,12 @@
 # Leetcode Solutions
 
-1. [Two Sum](./1/)
-2. [Add Two Numbers](./2/)
-3. [Longest Substring Without Repeating Characters](./3/)
-4. [Median of Two Sorted Arrays](./4/)
-5. [Longest Palindromic Substring](./5/)
-200. [Number of Islands](./200/)
+- [1. Two Sum](./1/)
+- [2. Add Two Numbers](./2/)
+- [3. Longest Substring Without Repeating Characters](./3/)
+- [4. Median of Two Sorted Arrays](./4/)
+- [5. Longest Palindromic Substring](./5/)
+- [7. Generate Parentheses](./7/)
+- [200. Number of Islands](./200/)
 
 ---
 
