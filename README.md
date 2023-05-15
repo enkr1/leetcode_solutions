@@ -6,6 +6,7 @@
 - [4. Median of Two Sorted Arrays](./4/)
 - [5. Longest Palindromic Substring](./5/)
 - [7. Generate Parentheses](./7/)
+- [15. 3Sum](./15/)
 - [200. Number of Islands](./200/)
 
 ---
@@ -32,3 +33,9 @@ iex ./.../solution.ex
 ```
 
 ---
+
+Quick create in bash
+```ssh
+chapter=15
+mkdir ./$chapter && touch ./$chapter/README.md && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js
+```
