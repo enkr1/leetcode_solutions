@@ -1,4 +1,5 @@
 # Leetcode Solutions
+[![wakatime](https://wakatime.com/badge/user/849bb989-6c1a-4bb4-a5f1-ba937583da5f/project/d0b05c78-06be-40bb-9bca-1e26b4ccd8db.svg)](https://wakatime.com/badge/user/849bb989-6c1a-4bb4-a5f1-ba937583da5f/project/d0b05c78-06be-40bb-9bca-1e26b4ccd8db)
 
 - [1. Two Sum](./1/)
 - [2. Add Two Numbers](./2/)
