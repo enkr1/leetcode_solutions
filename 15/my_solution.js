@@ -3,16 +3,25 @@
  * @return {number[][]}
  */
 const threeSum = (nums) => {
-
   let result = [];
+  nums.sort((a, b) => a - b);
+  console.log(nums)
+
   for (let i = 0; i < nums.length; i++) {
+    if (undefined !== nums[i - 1] && nums[i - 1] === nums[i]) {
+      console.log("-------------------> !!!! same as prev")
+      console.log(nums[i - 1])
+      console.log(nums[i])
+      continue;
+    }
+
     let tmpList = [...nums];
-    // , tmpMap = {};
     tmpList.splice(i, 1);
 
     let b = (0 === nums[i]) ? 0 : -nums[i];
     let c = nums[i] + b;
     console.log(`i: ${i}, nums[i]: ${nums[i]}, b: ${b}, c: ${c}`);
+    console.log("tmpList")
     console.log(tmpList)
 
     // // Build a hash map except the current item in order to find the other 2 group mates.
@@ -24,9 +33,9 @@ const threeSum = (nums) => {
     result = findGroup(Math.min(...nums), Math.max(...nums), nums[i], b, c, tmpList, result);
   }
 
-  // console.log("result")
-  // console.log(result)
-  console.log(removeDuplicates(result))
+  console.log("result")
+  console.log(result)
+  // console.log(removeDuplicates(result))
   // console.log([...new Set(result.map(JSON.stringify))].map(JSON.parse));
 
   return removeDuplicates(result);
@@ -103,5 +112,5 @@ const findGroup = (min, max, a, b, c, list, result) => {
 
 }
 
-threeSum([0, 0, 0])
-// threeSum([-1,0,1,2,-1,-4])
+// threeSum([0, 0, 0])
+threeSum([-1, 0, 1, 2, -1, -4])
