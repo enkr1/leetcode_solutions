@@ -10,6 +10,7 @@
 - [15. 3Sum](./15/)
 - [198. House Robber](./198/)
 - [200. Number of Islands](./200/)
+- [213. House Robber II](./213/)
 - [394. Decode String](./394/)
 
 ---
@@ -39,6 +40,6 @@ iex ./.../solution.ex
 
 Quick create in bash
 ```ssh
-chapter=198 && mkdir ./$chapter && touch ./$chapter/README.md && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js
+chapter=213 && mkdir ./$chapter && touch ./$chapter/README.md && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js
 # And TOC above
 ```
