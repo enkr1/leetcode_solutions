@@ -8,6 +8,7 @@
 - [5. Longest Palindromic Substring](./5/)
 - [7. Generate Parentheses](./7/)
 - [15. 3Sum](./15/)
+- [198. House Robber](./198/)
 - [200. Number of Islands](./200/)
 - [394. Decode String](./394/)
 
@@ -39,4 +40,5 @@ iex ./.../solution.ex
 Quick create in bash
 ```ssh
 chapter=198 && mkdir ./$chapter && touch ./$chapter/README.md && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js
+# And TOC above
 ```
