@@ -25,11 +25,14 @@ const rob = (nums) => {
 
   console.log("tmpList")
   console.log(Math.max(...tmpList))
+  console.log(tmpList[tmpList.length - 1])
   return;
 };
 // rob([1, 2])
 // rob([2, 1, 1, 2])
-rob([2, 3, 1, 2, 1, 1, 2])
+// rob([2, 3, 1, 2, 1, 1, 2])
+// rob([2, 7, 9, 3, 1])
+rob([1, 2, 3, 1])
 
 // [2,1,1,2]
 // Use Testcase
