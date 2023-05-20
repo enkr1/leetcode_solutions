@@ -14,6 +14,7 @@
 - [7. Generate Parentheses](./7/)
 - [15. 3Sum](./15/)
 - [22. Generate Parentheses](./22/)
+- [53. Maximum Subarray](./53/)
 - [121. Best Time to Buy and Sell Stock](./121/)
 - [198. House Robber](./198/)
 - [200. Number of Islands](./200/)
@@ -49,7 +50,7 @@ iex ./.../solution.ex
 
 Quick create in bash
 ```ssh
-chapter=238 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js
+chapter=53 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js
 
 # TODO: And TOC above
 
