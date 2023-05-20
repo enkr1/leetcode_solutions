@@ -4,19 +4,23 @@
  */
 var maxProfit = function (prices) {
   let max = 0;
+  console.log(prices.slice(0, 1))
 
-  for (let i = 0; i < prices.length; i++) {
-    for (let j = i + 1; j < prices.length; j++) {
-      console.log(prices[j])
-      if (prices[j] > prices[i] && (prices[j] - prices[i]) > max) {
-        console.log(`MAX - j:${prices[j]}, prices[i]:${prices[i]}`)
-        console.log(prices[j] - prices[i])
+  for (let i = 1; i < prices.length; i++) {
+    let min = Math.min(...prices.slice(0, i))
 
-        max = prices[j] - prices[i];
-        console.log("max")
-        console.log(max)
-      }
+    console.log(`i:${i}, prices[0]:${prices[0]}, prices[i]:${prices[i]}, min:${min}`)
+    if (min < prices[i] && ((prices[i] - min) > max)) {
+      console.log("smaller than yes")
+      console.log(min)
+      max = prices[i] - min;
+    } else {
+      console.log("no shit")
+      console.log(min)
+
     }
+    console.log("-<> max")
+    console.log(max)
   }
 
   console.log("l max")
