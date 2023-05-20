@@ -50,9 +50,9 @@ iex ./.../solution.ex
 
 Quick create in bash
 ```ssh
-chapter=53 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js
-
-# TODO: And TOC above
-
-alias x="node ./$chapter/my_solution"
+chapter=53 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution"
 ```
+
+<!--
+TODO: Add to TOC!
+-->
