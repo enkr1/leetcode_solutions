@@ -3,26 +3,34 @@
  * @return {number[]}
  */
 const productExceptSelf = (nums) => {
-  let map = new Map(), defaultFactor = 1;
+  if (1 === nums.length) return [0];
 
-  console.log(map)
+  let factorList = [], defaultFactor = 1;
 
   for (let i = 0; i < nums.length; i++) {
-    map = new Map(
-      Array.from(map, ([key, value]) =>
-        [key, value * nums[i]]
-      )
-    )
-
-    map.set(nums[i], defaultFactor);
+    factorList[i] = defaultFactor;
     defaultFactor *= nums[i];
   }
 
-  console.log(map)
-  console.log(Array.from(map, ([key, value]) => Math.abs(value)))
+  defaultFactor = 1;
 
-  return;
+  // [1, 4, 12, 24]
+  for (let j = 0; j < nums.length; j++) {
+    console.log(factorList[nums.length - (j + 1)]);
+    factorList[nums.length - (j + 1)] *= defaultFactor;
+    defaultFactor *= nums[nums.length - (j + 1)];
+  }
+
+  console.log(factorList)
+  //   console.log(Array.from(map, ([key, value]) => Math.abs(value)))
+  //
+  //   return;
 };
 
+
+
 // productExceptSelf([1, 2, 3, 4])
-productExceptSelf([-1, 1, 0, -3, 3])
+// productExceptSelf([1, 2, 3, 4, 2])
+// productExceptSelf([-1, 1, 0, -3, 3])
+// productExceptSelf([0, 0])
+productExceptSelf([0])
