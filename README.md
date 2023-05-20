@@ -47,6 +47,6 @@ iex ./.../solution.ex
 
 Quick create in bash
 ```ssh
-chapter=121 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js
+chapter=217 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js
 # And TOC above
 ```
