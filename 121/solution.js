@@ -13,6 +13,8 @@ const maxProfit = (prices) => {
       if ((prices[r] - prices[l] > max) || 0 === max) {
         max = prices[r] - prices[l];
       }
+    } else if (prices[l] === prices[r]) {
+      // ...
     } else {
       l = r;
     }

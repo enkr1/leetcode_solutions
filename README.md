@@ -1,6 +1,11 @@
 # Leetcode Solutions
 [![wakatime](https://wakatime.com/badge/user/849bb989-6c1a-4bb4-a5f1-ba937583da5f/project/d0b05c78-06be-40bb-9bca-1e26b4ccd8db.svg)](https://wakatime.com/badge/user/849bb989-6c1a-4bb4-a5f1-ba937583da5f/project/d0b05c78-06be-40bb-9bca-1e26b4ccd8db)
 
+[Notion Database - all of my notes on the problems](https://enkr.notion.site/db6bbb891f264f37a64c99799ca2057d?v=0b3cf643151b4ec1b29a01eecce8bbb4)
+
+---
+
+# Problems:
 - [1. Two Sum](./1/)
 - [2. Add Two Numbers](./2/)
 - [3. Longest Substring Without Repeating Characters](./3/)
@@ -8,6 +13,8 @@
 - [5. Longest Palindromic Substring](./5/)
 - [7. Generate Parentheses](./7/)
 - [15. 3Sum](./15/)
+- [22. Generate Parentheses](./22/)
+- [121. Best Time to Buy and Sell Stock](./121/)
 - [198. House Robber](./198/)
 - [200. Number of Islands](./200/)
 - [213. House Robber II](./213/)
@@ -40,6 +47,6 @@ iex ./.../solution.ex
 
 Quick create in bash
 ```ssh
-chapter=121 && mkdir ./$chapter && touch ./$chapter/README.md && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js
+chapter=121 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js
 # And TOC above
 ```
