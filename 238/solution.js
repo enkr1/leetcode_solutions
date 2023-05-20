@@ -1,10 +1,20 @@
 /**
  * @param {number[]} nums
  * @return {number[]}
- */
+*/
 const productExceptSelf = (nums) => {
-  return;
-};
+  let map = new Map(), defaultFactor = 1;
 
-productExceptSelf([1, 2, 3, 4])
-productExceptSelf([-1, 1, 0, -3, 3])
+  for (let i = 0; i < nums.length; i++) {
+    map = new Map(
+      Array.from(map, ([key, value]) =>
+        [key, value * nums[i]]
+      )
+    )
+
+    map.set(nums[i], defaultFactor);
+    defaultFactor *= nums[i];
+  }
+
+  return Array.from(map, ([key, value]) => Math.abs(value));
+};
