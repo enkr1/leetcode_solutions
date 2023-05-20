@@ -3,24 +3,25 @@
  * @return {number}
  */
 const maxProfit = (prices) => {
-  return findMax(0, 1, prices, 0);
-};
-
-const findMax = (l, r, prices, max) => {
   if (1 === prices.length) return 0;
-  if (r === prices.length) return max;
 
-  if (prices[l] < prices[r]) {
-    if ((prices[r] - prices[l] > max) || 0 === max) {
-      max = prices[r] - prices[l];
+  let l = 0, r = 0, max = 0;
+  for (let i = 0; i < prices.length; i++) {
+    if (r === prices.length) return max;
+
+    if (prices[l] < prices[r]) {
+      if ((prices[r] - prices[l] > max) || 0 === max) {
+        max = prices[r] - prices[l];
+      }
+    } else {
+      l = r;
     }
-  } else {
-    l = r;
+
+    r++;
   }
 
-  r++;
-  return findMax(l, r, prices, max);
-}
+  return max;
+};
 
 
 /**
