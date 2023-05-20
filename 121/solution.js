@@ -25,7 +25,7 @@ const maxProfit = (prices) => {
 
 
 /**
- *
+
 Space Complexity:
 The function uses a constant amount of extra space, regardless of the input size. It only declares a few variables (l, r, and max) to store indices and the maximum profit. Therefore, the space complexity is O(1), indicating constant space usage.
 
