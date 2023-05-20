@@ -49,4 +49,5 @@ Quick create in bash
 ```ssh
 chapter=217 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js
 # And TOC above
+alias x="node ./$chapter/my_solution"
 ```
