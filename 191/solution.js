@@ -3,7 +3,15 @@
  * @return {number}
  */
 const hammingWeight = (n) => {
+  let count = 0;
 
-  return;
+  while (n !== 0) {
+    if (n & 0001) {
+      count++;
+    }
+    n >>= 1;
+  }
+
+  return count;
 }
-// 00000000000000000000000000001011
+
