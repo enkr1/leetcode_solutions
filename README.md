@@ -51,7 +51,7 @@ iex ./.../solution.ex
 
 Quick create in bash
 ```ssh
-chapter=191 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=338 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 
 <!--
