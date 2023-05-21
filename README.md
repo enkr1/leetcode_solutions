@@ -16,12 +16,15 @@
 - [22. Generate Parentheses](./22/)
 - [53. Maximum Subarray](./53/)
 - [121. Best Time to Buy and Sell Stock](./121/)
+- [191. Number of 1 Bits](./191/)
 - [198. House Robber](./198/)
 - [200. Number of Islands](./200/)
 - [213. House Robber II](./213/)
 - [217. Contains Duplicate](./217/)
 - [238. Product of Array Except Self](./238/)
+- [268. Missing Number](./268/)
 - [371. Sum of Two Integers](./371/)
+- [338. Counting Bits](./338/)
 - [394. Decode String](./394/)
 
 ---
@@ -51,7 +54,7 @@ iex ./.../solution.ex
 
 Quick create in bash
 ```ssh
-chapter=338 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=268 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 
 <!--
