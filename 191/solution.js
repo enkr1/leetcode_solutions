@@ -5,13 +5,10 @@
 const hammingWeight = (n) => {
   let count = 0;
 
-  while (n !== 0) {
-    if (n & 0001) {
-      count++;
-    }
-    n >>= 1;
+  while (n) {
+    n &= (n - 1);
+    count++;
   }
 
   return count;
 }
-
