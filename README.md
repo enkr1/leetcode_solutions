@@ -21,6 +21,7 @@
 - [213. House Robber II](./213/)
 - [217. Contains Duplicate](./217/)
 - [238. Product of Array Except Self](./238/)
+- [371. Sum of Two Integers](./371/)
 - [394. Decode String](./394/)
 
 ---
@@ -50,7 +51,7 @@ iex ./.../solution.ex
 
 Quick create in bash
 ```ssh
-chapter=53 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution"
+chapter=371 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 
 <!--
