@@ -3,34 +3,29 @@
  * @return {number} - a positive integer
  */
 const reverseBits = (n) => {
-  let str = "";
+  let res = 0
   console.log(`check: ${(n)}`)
-  // n = (n) >> 1;
-  // n = (n) >> 1;
-  console.log(`check: ${n}`)
-  //
-  //   let reversed = 0;
-  //   const totalBits = 32;
-  //
-  //   for (let i = 0; i < totalBits; i++) {
-  //     reversed = (reversed << 1) | (n & 1);
-  //     n = n >> 1;
-  //   }
-  //   console.log(`check: ${reversed}`)
+  console.log(`check: ${n >> 1}`)
+  console.log(`check: ${0 & 1}`)
 
-  while (n != 0) {
-    console.log(`before: ${n}`)
-    str += (n & 1) ? "1" : "0";
-    n = n >> 1;
-    console.log(`after: ${n}`)
-    // n = 0;
+  // while (0 !== n) {
+  for (let i = 0; i < 32; i++) {
+    // console.log(`before: ${n}`)
+    // str += (n & 1) ? "0" : "1";
+    // n = n << 1;
+    // console.log(`after: ${n}`)
+    let lastBit = n & 1;
+    let revBit = lastBit << (31 - i);
+    res = res | revBit;
+    n >>>= 1;
   }
 
-  console.log("str")
-  console.log(str)
+  res >>>= 0;
+  console.log("res")
+  console.log(res)
 
   return;
 }
 
-reverseBits(00000010100101000001111010011100) // 43261596 -> 964176192
-// reverseBits(11111111111111111111111111111101)
+// reverseBits(00000010100101000001111010011100) // 43261596 -> 964176192
+reverseBits(11111111111111111111111111111101)
