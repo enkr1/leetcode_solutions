@@ -3,13 +3,12 @@
  * @return {number}
  */
 const maxProduct = (nums) => {
-  let h = nums[0], prevH = h;
+  let preF = nums[0], max = preF;
 
   for (let i = 1; i < nums.length; i++) {
-    prevH = (0 === prevH) ? nums[i] : prevH * nums[i]
-    if (prevH > h) h = prevH;
-    if (nums[i] > h) h = nums[i];
+    max = Math.max(max, nums[i] * preF, nums[i]);
+    preF = nums[i] * nums[i - 1];
   }
 
-  return h;
+  return max;
 };
