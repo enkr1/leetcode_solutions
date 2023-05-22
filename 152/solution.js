@@ -9,6 +9,7 @@ const maxProduct = (nums) => {
     if (0 === nums[i]) {
       min = 1;
       max = 1;
+      if (result < 0) result = 0;
       continue;
     }
 
