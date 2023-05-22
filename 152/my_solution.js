@@ -3,23 +3,31 @@
  * @return {number}
  */
 const maxProduct = (nums) => {
-  let preF = nums[0], max = 0;
+  let min = nums[0], max = nums[0], result = max;
 
-  // console.log((undefined || 1) * 1)
   for (let i = 1; i < nums.length; i++) {
-    console.log(`nums[i]:${nums[i]}, preF:${preF}, max:${max}, nums[i] * preF:${nums[i] * preF} - max:${Math.max(max, nums[i] * preF, nums[i])}`)
-    max = Math.max(max, nums[i] * preF, nums[i]);
-    preF = nums[i] * nums[i - 1];
-    console.log("preF")
-    console.log(preF)
+    console.log(`i:${i}, nums[i]:${nums[i]}, max:${max}, min:${min}`)
+
+    if (0 === nums[i]) {
+      min = 1;
+      max = 1;
+      continue;
+    }
+
+    let tmpMax = max;
+    max = Math.max(nums[i] * min, nums[i] * max, nums[i]);
+    min = Math.min(nums[i] * min, nums[i] * tmpMax, nums[i])
+    if (max > result) result = max;
+    console.log(`max:${max}, min:${min} -- result:${result}`)
+
   }
 
-  console.log(`max:${max}`)
+  console.log(`result:${result}`)
 
-  return max;
+  return result;
 };
 
-// maxProduct([2, 3, -2, 4])
+maxProduct([2, 3, -2, 4])
 // maxProduct([-2, 0, -1])
 // maxProduct([0])
 // maxProduct([0, 2])
@@ -28,4 +36,4 @@ const maxProduct = (nums) => {
 // maxProduct([3, -1, 4]) // 4
 // maxProduct([2, -5, -2, -4, 3]) // 24
 // maxProduct([-2])
-maxProduct([-1, -2, -9, -6])
+// maxProduct([-1, -2, -9, -6])
