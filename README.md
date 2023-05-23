@@ -16,6 +16,8 @@
 - [22. Generate Parentheses](./22/)
 - [53. Maximum Subarray](./53/)
 - [121. Best Time to Buy and Sell Stock](./121/)
+- [152. Maximum Product Subarray](./152/)
+- [153. Find Minimum in Rotated Sorted Array](./153/)
 - [190. Reverse Bits](./190/)
 - [191. Number of 1 Bits](./191/)
 - [198. House Robber](./198/)
@@ -55,7 +57,7 @@ iex ./.../solution.ex
 
 Quick create in bash
 ```ssh
-chapter=152 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=153 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 
 <!--
