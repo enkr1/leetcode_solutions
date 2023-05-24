@@ -6,25 +6,26 @@
 const search = (nums, target) => {
   let l = 0, r = nums.length - 1;
 
-  // odd 5,7 => [2,0,1]
   while (l <= r) {
     let m = Math.ceil((l + r) / 2);
 
-    if (target == nums[m]) return m;
+    if (target == nums[m]) {
+      console.log("Returning " + m)
+      return m;
+    }
 
     // chunk checking
     if (nums[l] <= nums[m]) {
-
-      if (nums[l] <= target) {
-        r = m;
-      } else {
+      if (target > nums[m] || target < nums[l]) {
         l = m + 1;
-      }
-    } else {
-      if (nums[m] <= target) {
-        l = m;
       } else {
         r = m - 1;
+      }
+    } else {
+      if (target < nums[m] || target > nums[r]) {
+        r = m - 1;
+      } else {
+        l = m;
       }
     }
 
@@ -32,7 +33,8 @@ const search = (nums, target) => {
 
   }
 
-  // return -1;
+  console.log("NOt found")
+  return -1;
 };
 
 
