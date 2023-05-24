@@ -14,6 +14,7 @@
 - [7. Generate Parentheses](./7/)
 - [15. 3Sum](./15/)
 - [22. Generate Parentheses](./22/)
+- [33. Search in Rotated Sorted Array](./33/)
 - [53. Maximum Subarray](./53/)
 - [121. Best Time to Buy and Sell Stock](./121/)
 - [152. Maximum Product Subarray](./152/)
@@ -57,7 +58,7 @@ iex ./.../solution.ex
 
 Quick create in bash
 ```ssh
-chapter=153 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=33 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 
 <!--
