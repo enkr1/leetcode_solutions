@@ -12,6 +12,7 @@
 - [4. Median of Two Sorted Arrays](./4/)
 - [5. Longest Palindromic Substring](./5/)
 - [7. Generate Parentheses](./7/)
+- [11. Container With Most Water](./11/)
 - [15. 3Sum](./15/)
 - [22. Generate Parentheses](./22/)
 - [33. Search in Rotated Sorted Array](./33/)
@@ -58,7 +59,7 @@ iex ./.../solution.ex
 
 Quick create in bash
 ```ssh
-chapter=33 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=11 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 
 <!--
