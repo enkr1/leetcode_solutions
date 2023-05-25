@@ -3,6 +3,8 @@
 
 [Notion Database - all of my notes on the problems](https://enkr.notion.site/db6bbb891f264f37a64c99799ca2057d?v=0b3cf643151b4ec1b29a01eecce8bbb4)
 
+> I prefer to initially code using Google Docs as my primary platform, unless it's a new topic that necessitates debugging in a terminal or if I encounter challenges that prevent me from completing the task within the allotted time. (30m)
+
 ---
 
 # Problems:
