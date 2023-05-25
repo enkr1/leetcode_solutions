@@ -28,6 +28,7 @@
 - [191. Number of 1 Bits](./191/)
 - [198. House Robber](./198/)
 - [200. Number of Islands](./200/)
+- [206. Reverse Linked List](./206/)
 - [213. House Robber II](./213/)
 - [217. Contains Duplicate](./217/)
 - [238. Product of Array Except Self](./238/)
@@ -61,10 +62,11 @@ iex ./.../solution.ex
 
 ---
 
-Quick create in bash
+Batch create in bash
 ```ssh
-chapter=21 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=206 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
+> And now you can use `x` for quick debug.
 
 <!--
 TODO: Add to TOC!
