@@ -15,6 +15,7 @@
 - [11. Container With Most Water](./11/)
 - [15. 3Sum](./15/)
 - [22. Generate Parentheses](./22/)
+- [23. Merge k Sorted Lists](./23/)
 - [33. Search in Rotated Sorted Array](./33/)
 - [53. Maximum Subarray](./53/)
 - [121. Best Time to Buy and Sell Stock](./121/)
@@ -59,7 +60,7 @@ iex ./.../solution.ex
 
 Quick create in bash
 ```ssh
-chapter=11 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=23 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 
 <!--
