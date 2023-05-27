@@ -16,6 +16,7 @@
 - [7. Generate Parentheses](./7/)
 - [11. Container With Most Water](./11/)
 - [15. 3Sum](./15/)
+- [19. Remove Nth Node From End of List](./19/)
 - [21. Merge Two Sorted Lists](./21/)
 - [22. Generate Parentheses](./22/)
 - [23. Merge k Sorted Lists](./23/)
@@ -65,7 +66,7 @@ iex ./.../solution.ex
 
 Batch create in bash
 ```ssh
-chapter=141 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=19 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > And now you can use `x` for quick debug.
 
