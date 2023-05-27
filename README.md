@@ -24,6 +24,7 @@
 - [53. Maximum Subarray](./53/)
 - [121. Best Time to Buy and Sell Stock](./121/)
 - [141. Linked List Cycle](./141/)
+- [143. Reorder List](./143/)
 - [152. Maximum Product Subarray](./152/)
 - [153. Find Minimum in Rotated Sorted Array](./153/)
 - [190. Reverse Bits](./190/)
@@ -66,7 +67,7 @@ iex ./.../solution.ex
 
 Batch create in bash
 ```ssh
-chapter=19 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=143 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > And now you can use `x` for quick debug.
 
