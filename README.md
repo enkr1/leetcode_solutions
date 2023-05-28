@@ -1,5 +1,8 @@
 # Leetcode Solutions
+
 [![wakatime](https://wakatime.com/badge/user/849bb989-6c1a-4bb4-a5f1-ba937583da5f/project/d0b05c78-06be-40bb-9bca-1e26b4ccd8db.svg)](https://wakatime.com/badge/user/849bb989-6c1a-4bb4-a5f1-ba937583da5f/project/d0b05c78-06be-40bb-9bca-1e26b4ccd8db)
+
+[![My LeetCode stats](https://leetcode-stats-six.vercel.app/api?username=enkr1&theme=dark)](https://leetcode.com/enkr1/)
 
 [Notion Database - all of my notes on the problems](https://enkr.notion.site/db6bbb891f264f37a64c99799ca2057d?v=0b3cf643151b4ec1b29a01eecce8bbb4)
 
@@ -22,6 +25,7 @@
 - [23. Merge k Sorted Lists](./23/)
 - [33. Search in Rotated Sorted Array](./33/)
 - [53. Maximum Subarray](./53/)
+- [83. Remove Duplicates from Sorted List](./83/)
 - [121. Best Time to Buy and Sell Stock](./121/)
 - [141. Linked List Cycle](./141/)
 - [143. Reorder List](./143/)
@@ -67,7 +71,7 @@ iex ./.../solution.ex
 
 Batch create in bash
 ```ssh
-chapter=143 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=83 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > And now you can use `x` for quick debug.
 
