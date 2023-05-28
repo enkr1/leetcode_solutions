@@ -39,6 +39,7 @@
 - [213. House Robber II](./213/)
 - [217. Contains Duplicate](./217/)
 - [238. Product of Array Except Self](./238/)
+- [242. Valid Anagram](./242/)
 - [268. Missing Number](./268/)
 - [371. Sum of Two Integers](./371/)
 - [338. Counting Bits](./338/)
@@ -71,7 +72,7 @@ iex ./.../solution.ex
 
 Batch create in bash
 ```ssh
-chapter=83 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=242 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > And now you can use `x` for quick debug.
 
