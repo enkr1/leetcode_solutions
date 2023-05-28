@@ -24,6 +24,7 @@
 - [22. Generate Parentheses](./22/)
 - [23. Merge k Sorted Lists](./23/)
 - [33. Search in Rotated Sorted Array](./33/)
+- [49. Group Anagrams](./49/)
 - [53. Maximum Subarray](./53/)
 - [83. Remove Duplicates from Sorted List](./83/)
 - [121. Best Time to Buy and Sell Stock](./121/)
@@ -71,11 +72,11 @@ iex ./.../solution.ex
 ---
 
 Batch create in bash
-```ssh
-chapter=242 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
-```
-> And now you can use `x` for quick debug.
+> then you can use `x` for quick debug.
 
 <!--
 TODO: Add to TOC!
 -->
+```ssh
+chapter=49 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+```
