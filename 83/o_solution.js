@@ -9,22 +9,6 @@ class ListNode {
  * @param {ListNode} head
  * @return {ListNode}
  */
-const deleteDuplicates1 = (head) => {
-  let map = new Map(), dummy = new ListNode(), result = dummy;
-
-  while (head) {
-    if (!map.has(head.val)) {
-      map.set(head.val, 0);
-      dummy.next = new ListNode(head.val);
-      dummy = dummy.next;
-    }
-
-    head = head.next;
-  }
-
-  return result.next;
-}
-
 const deleteDuplicates = (head) => {
   let result = head;
 
@@ -36,5 +20,31 @@ const deleteDuplicates = (head) => {
     head = head.next;
   }
 
+  console.log("result")
+  // console.log(result)
+  while (result) {
+    console.log(result.val)
+    result = result.next;
+  }
+
   return result;
 }
+
+deleteDuplicates(
+  new ListNode(1,
+    new ListNode(1,
+      new ListNode(1,
+        new ListNode(2,
+          new ListNode(2,
+            new ListNode(2,
+              new ListNode(3,
+                new ListNode(3
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)
