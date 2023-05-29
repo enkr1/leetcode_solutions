@@ -6,46 +6,54 @@ function numIslands(grid) {
 
   let count = 0;
 
-  const dfs = (i, j) => {
+  const dfs = (row, col) => {
     if (
-      i < 0 ||
-      i >= grid.length ||
-      j < 0 ||
-      j >= grid[i].length ||
-      grid[i][j] === "0"
+      row < 0 ||
+      row >= grid.length ||
+      col < 0 ||
+      col >= grid[row].length ||
+      grid[row][col] === "0"
     ) {
       return;
     }
 
-    grid[i][j] = "0";
+    grid[row][col] = "0";
 
-    console.log("i, j")
-    console.log(i, j)
+    console.log("row, col")
+    console.log(row, col)
 
-    dfs(i + 1, j);
-    dfs(i - 1, j);
-    dfs(i, j + 1);
-    dfs(i, j - 1);
+    // y=col, x=row
+    // t=y-1
+    // r=x+1
+    // b=y+1
+    // l=x-1
+    dfs(row + 1, col);
+    dfs(row - 1, col);
+    dfs(row, col + 1);
+    dfs(row, col - 1);
   };
 
-  for (let i = 0; i < grid.length; i++) {
-    for (let j = 0; j < grid[i].length; j++) {
-      if (grid[i][j] === "1") {
+  for (let row = 0; row < grid.length; row++) {
+    for (let col = 0; col < grid[row].length; col++) {
+      if (grid[row][col] === "1") {
         count++;
-        dfs(i, j);
+        dfs(row, col);
       }
     }
   }
 
+  console.log("count")
+  console.log(count)
+
   return count;
 }
 
-numIslands([
-  ["1", "1", "0", "0", "0"],
-  ["1", "1", "0", "0", "0"],
-  ["1", "0", "1", "0", "0"],
-  ["1", "0", "0", "1", "1"]
-]);
+// numIslands([
+//   ["1", "1", "0", "0", "0"],
+//   ["1", "1", "0", "0", "0"],
+//   ["1", "0", "1", "0", "0"],
+//   ["1", "0", "0", "1", "1"]
+// ]);
 
 // numIslands([
 //   ["1", "1", "1"],
