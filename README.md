@@ -45,6 +45,7 @@
 - [371. Sum of Two Integers](./371/)
 - [338. Counting Bits](./338/)
 - [394. Decode String](./394/)
+- [424. Longest Repeating Character Replacement](./424/)
 
 ---
 
@@ -78,5 +79,5 @@ Batch create in bash
 TODO: Add to TOC!
 -->
 ```ssh
-chapter=49 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=424 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
