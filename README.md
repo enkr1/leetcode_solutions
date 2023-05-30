@@ -20,6 +20,7 @@
 - [11. Container With Most Water](./11/)
 - [15. 3Sum](./15/)
 - [19. Remove Nth Node From End of List](./19/)
+- [20. Valid Parentheses](./20/)
 - [21. Merge Two Sorted Lists](./21/)
 - [22. Generate Parentheses](./22/)
 - [23. Merge k Sorted Lists](./23/)
@@ -79,5 +80,5 @@ Batch create in bash
 TODO: Add to TOC!
 -->
 ```ssh
-chapter=424 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=20 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
