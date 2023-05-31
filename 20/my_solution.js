@@ -3,7 +3,11 @@
  * @return {boolean}
  */
 const isValid = (str) => {
-  let map = new Map(), openStack = [], char = str.split("");
+  let char = str.split("");
+
+  if (1 === char.length) return false;
+
+  let map = new Map(), openStack = [];
 
   map.set("{", "}");
   map.set("(", ")");
