@@ -27,6 +27,7 @@
 - [33. Search in Rotated Sorted Array](./33/)
 - [49. Group Anagrams](./49/)
 - [53. Maximum Subarray](./53/)
+- [76. Minimum Window Substring](./76/)
 - [83. Remove Duplicates from Sorted List](./83/)
 - [121. Best Time to Buy and Sell Stock](./121/)
 - [141. Linked List Cycle](./141/)
@@ -80,5 +81,5 @@ Batch create in bash
 TODO: Add to TOC!
 -->
 ```ssh
-chapter=20 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=76 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
