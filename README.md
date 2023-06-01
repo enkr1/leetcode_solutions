@@ -49,6 +49,7 @@
 - [338. Counting Bits](./338/)
 - [394. Decode String](./394/)
 - [424. Longest Repeating Character Replacement](./424/)
+- [647. Palindromic Substrings](./647/)
 
 ---
 
@@ -82,5 +83,5 @@ Batch create in bash
 TODO: Add to TOC!
 -->
 ```ssh
-chapter=125 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=647 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
