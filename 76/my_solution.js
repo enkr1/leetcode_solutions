@@ -5,45 +5,107 @@
  */
 const minWindow = (s, t) => {
   let l = -1, r = -1,
-    sChar = s.split(""), tChar = t.split(""),
+    stringMap = new Map(),
     trackingMap = new Map();
 
-  tChar.forEach((item) => trackingMap.set(item, (trackingMap.get(item) || 0) + 1));
-  if (JSON.stringify(sChar) === JSON.stringify(tChar)) return s;
+  s.forEach((item) => stringMap.set(item, (stringMap.get(item) || 0) + 1));
+  t.forEach((item) => trackingMap.set(item, (trackingMap.get(item) || 0) + 1));
 
-  // console.log("trackingMap")
-  // console.log(trackingMap)
-  // console.log('sChar')
-  // console.log(sChar)
-  // console.log('tChar')
-  // console.log(tChar)
+  //   console.log(trackingMap)
+//   console.log(stringMap)
+//   console.log(undefined === 2)
+//   console.log(0 === 2)
+//   console.log("s < t")
+//   console.log(s < t)
+//   console.log(s > t)
+//   console.log(s[0])
+//   return;
+
+//   const areAllKeysVisited = (t, m1, m2) => {
+//     for (let i = 0; i < t.length; i++) {
+//       if (m1.get(t[i]) !== m2.get(t[i])) return false;
+//     }
+//
+//     return true;
+//   }
+//
+//   areAllKeysVisited(t, stringMap, trackingMap);
+  // let x= areAllKeysVisited(t, stringMap, trackingMap);
+  // console.log(x)
+  // return;
+  // if (JSON.stringify(s) === JSON.stringify(t)) return s;
 
   // if the values of the map has a 0, skip saving the min - as we know that it’s not complete
-  for (let i = 0; i < sChar.length; i++) {
-    if (!tChar.includes(sChar[i])) continue; // esc
+
+  //   while (s) {
+  //     let curr = s.shift();
+  //     console.log("1. curr: " + curr)
+  //     if (!t.includes(curr)) continue;
+  //
+  //     visitMap = new Map([...trackingMap]), have = 1;
+  //     visitMap.set(s[i], visitMap.get(s[i]) - 1);
+  //     console.log("2. new s")
+  //     console.log(s)
+  //
+  //     if (have === t.length) {
+  //       l = i;
+  //       r = i;
+  //       break;
+  //     }
+  //
+  //     while (s) {
+  //       let next = s.shift();
+  //       if (visitMap.has(s[k])) visitMap.set(s[k], visitMap.get(s[k]) - 1);
+  //
+  //       // NOTE: This is the part! WOOHOO
+  //       if (0 <= visitMap.get(s[k])) have++;
+  //
+  //       console.log(`--> s[k]:${s[k]}, have:${have}, t.length:${t.length}`)
+  //       // save the tmpMin if all have been visited only once
+  //       if (t.length === have && ((r == -1 && l == -1) || ((k - i + 1) < (r - l + 1)))) {
+  //         console.log(">>> FOUNDDD")
+  //         console.log("curr length: " + (r - l + 1))
+  //         l = i;
+  //         r = k;
+  //         break;
+  //       }
+  //
+  //       // console.log("--> visitMap")
+  //       // console.log(visitMap)
+  //       console.log("have")
+  //       console.log(have)
+  //
+  //     }
+  //   }
+
+
+  for (let i = 0; i < s.length; i++) {
+    if (!t.includes(t[i])) continue; // esc the one not starting with target string
 
     // map in the loop, to keep the visit
-    visitMap = new Map([...trackingMap]), // reset visit count every loop
-      have = 1;
+    // reset visit count every loop
+    visitMap = new Map([...trackingMap]);
+    let have = 1;
 
-    visitMap.set(sChar[i], visitMap.get(sChar[i]) - 1); // reduce the curr node
+    visitMap.set(s[i], visitMap.get(s[i]) - 1); // reduce the curr node
 
-    if (have === tChar.length) {
+    if (have === t.length) {
       l = i;
       r = i;
       break;
     }
 
-    console.log(`-> i:${i} => sChar[i]:${sChar[i]}, have:${have}`)
-    for (let k = i + 1; k < sChar.length; k++) {
-      if (visitMap.has(sChar[k])) visitMap.set(sChar[k], visitMap.get(sChar[k]) - 1);
+    console.log(`-> i:${i} => s[i]:${s[i]}, have:${have}`)
+    for (let k = i + 1; k < s.length; k++) {
+      if (visitMap.has(s[k])) visitMap.set(s[k], visitMap.get(s[k]) - 1);
 
       // NOTE: This is the part! WOOHOO
-      if (0 <= visitMap.get(sChar[k])) have++;
+      if (0 <= visitMap.get(s[k])) have++;
 
-      console.log(`--> k:${k} => sChar[k]:${sChar[k]}, have:${have}, tChar.length:${tChar.length}`)
+      console.log(`--> k:${k} => s[k]:${s[k]}, have:${have}, t.length:${t.length}`)
       // save the tmpMin if all have been visited only once
-      if (tChar.length === have && ((r == -1 && l == -1) || ((k - i + 1) < (r - l + 1)))) {
+      // if (t.length === have && ((r == -1 && l == -1) || ((k - i + 1) < (r - l + 1)))) {
+      if (t.length === have && ((r == -1 && l == -1) || ((k - i + 1) < (r - l + 1)))) {
         console.log(">>> FOUNDDD")
         console.log("curr length: " + (r - l + 1))
         l = i;
@@ -53,18 +115,16 @@ const minWindow = (s, t) => {
 
       // console.log("--> visitMap")
       // console.log(visitMap)
-      console.log("have")
-      console.log(have)
+      // console.log("have")
+      // console.log(have)
     }
-
-    sChar.shift();
   }
 
 
   console.log(`l:${l}, r:${r}`)
-  console.log(">>>>>>>>>>>>>>>>>> RESULT: " + sChar.slice(l, r + 1).join(''))
+  console.log(">>>>>>>>>>>>>>>>>> RESULT: " + s.slice(l, r + 1).join(''))
 
-  return sChar.slice(l, r + 1).join('');
+  return s.slice(l, r + 1).join('');
 }
 //         0123456789012
 minWindow("ADOBECODEBANC", "ABC") // BANC
