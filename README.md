@@ -45,6 +45,7 @@
 - [238. Product of Array Except Self](./238/)
 - [242. Valid Anagram](./242/)
 - [268. Missing Number](./268/)
+- [271. Encode and Decode Strings (Premium)](./271/)
 - [371. Sum of Two Integers](./371/)
 - [338. Counting Bits](./338/)
 - [394. Decode String](./394/)
@@ -83,5 +84,5 @@ Batch create in bash
 TODO: Add to TOC!
 -->
 ```ssh
-chapter=647 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=271 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
