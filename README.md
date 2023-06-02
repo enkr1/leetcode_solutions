@@ -47,6 +47,7 @@
 - [268. Missing Number](./268/)
 - [271. Encode and Decode Strings (Premium)](./271/)
 - [371. Sum of Two Integers](./371/)
+- [374. Top K Frequent Elements](./374/)
 - [338. Counting Bits](./338/)
 - [394. Decode String](./394/)
 - [424. Longest Repeating Character Replacement](./424/)
@@ -84,5 +85,5 @@ Batch create in bash
 TODO: Add to TOC!
 -->
 ```ssh
-chapter=271 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=374 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
