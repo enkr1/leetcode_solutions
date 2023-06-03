@@ -30,6 +30,7 @@
 - [76. Minimum Window Substring](./76/)
 - [83. Remove Duplicates from Sorted List](./83/)
 - [121. Best Time to Buy and Sell Stock](./121/)
+- [133. Clone Graph](./133/)
 - [125. Valid Palindrome](./125/)
 - [141. Linked List Cycle](./141/)
 - [143. Reorder List](./143/)
@@ -87,5 +88,5 @@ Batch create in bash
 TODO: Add to TOC!
 -->
 ```ssh
-chapter=771 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=133 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
