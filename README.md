@@ -55,6 +55,7 @@
 - [424. Longest Repeating Character Replacement](./424/)
 - [647. Palindromic Substrings](./647/)
 - [771. Jewels and Stones](./771/)
+- [1791. Find Center of Star Graph](./1791/)
 
 ---
 
@@ -88,5 +89,5 @@ Batch create in bash
 TODO: Add to TOC!
 -->
 ```ssh
-chapter=133 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=1791 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
