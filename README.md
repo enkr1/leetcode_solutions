@@ -70,26 +70,36 @@
 ---
 ## Commands for myself
 
-Run for JS
+### JavaScript
+
+To run the js solution:
 ```sh
 node ./.../solution.js
 ```
 
+Batch create:
+```ssh
+chapter=997 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+```
+> then you can use `x` for quick debug.
+
 ---
 
-Run for Elixir
+### Elixir
+
+To run the elixir solution:
 ```sh
 iex ./.../solution.ex
 ```
 
----
-
-Batch create in bash
+Batch create:
+```ssh
+chapter=997 && mkdir ./$chapter && touch ./$chapter/my_solution.ex && touch ./$chapter/solution.ex && alias x="iex ./$chapter/my_solution.ex"
+```
 > then you can use `x` for quick debug.
+
+---
 
 <!--
 TODO: Add to TOC!
 -->
-```ssh
-chapter=997 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
-```
