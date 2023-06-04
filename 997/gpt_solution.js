@@ -27,6 +27,7 @@ function findJudge(n, trust) {
   return -1;
 }
 
+// I found this smarter also better in terms of memory.
 function findJudge2(n, trust) {
   const trustCounts = Array(n + 1).fill(0);
 
