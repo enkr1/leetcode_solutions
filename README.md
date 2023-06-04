@@ -27,6 +27,7 @@
 - [33. Search in Rotated Sorted Array](./33/)
 - [49. Group Anagrams](./49/)
 - [53. Maximum Subarray](./53/)
+- [57. Insert Interval](./57/)
 - [76. Minimum Window Substring](./76/)
 - [83. Remove Duplicates from Sorted List](./83/)
 - [121. Best Time to Buy and Sell Stock](./121/)
@@ -70,21 +71,6 @@
 ---
 ## Commands for myself
 
-### JavaScript
-
-To run the js solution:
-```sh
-node ./.../solution.js
-```
-
-Batch create:
-```ssh
-chapter=997 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
-```
-> then you can use `x` for quick debug.
-
----
-
 ### Elixir
 
 To run the elixir solution:
@@ -100,6 +86,24 @@ chapter=997 && mkdir ./$chapter && touch ./$chapter/my_solution.ex && touch ./$c
 
 ---
 
+### JavaScript
+
+To run the js solution:
+```sh
+node ./.../solution.js
+```
+
+Batch create:
 <!--
-TODO: Add to TOC!
+NOTE: JS IS HERE
+-->
+```ssh
+chapter=57 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+```
+> then you can use `x` for quick debug.
+
+---
+
+<!--
+TODO: Rmb to dd to TOC!
 -->
