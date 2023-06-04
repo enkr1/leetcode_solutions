@@ -27,6 +27,7 @@
 - [33. Search in Rotated Sorted Array](./33/)
 - [49. Group Anagrams](./49/)
 - [53. Maximum Subarray](./53/)
+- [56. Merge Intervals](./56/)
 - [57. Insert Interval](./57/)
 - [76. Minimum Window Substring](./76/)
 - [83. Remove Duplicates from Sorted List](./83/)
@@ -97,8 +98,8 @@ Batch create:
 <!--
 NOTE: JS IS HERE
 -->
-```ssh
-chapter=57 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+```**ssh**
+chapter=56 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
