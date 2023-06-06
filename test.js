@@ -32,16 +32,26 @@
 //
 // console.log(y); // Output: [1, 2, 4, 3]
 
-console.log(2 % 2 == 0);
-console.log(3 % 2 == 0);
-console.log(4 % 2 == 0);
+// console.log(2 % 2 == 0);
+// console.log(3 % 2 == 0);
+// console.log(4 % 2 == 0);
+//
+// const fizzBuzz = (n) => {
+//   let result = "";
+//   if (n % 3 === 0) result = "Fizz"
+//   if (n % 5 === 0) result += "Buzz"
+//   return result;
+// }
+// let fb = fizzBuzz(15)
+// console.log("fb")
+// console.log(fb)
+//
+//
 
-const fizzBuzz = (n) => {
-  let result = "";
-  if (n % 3 === 0) result = "Fizz"
-  if (n % 5 === 0) result += "Buzz"
-  return result;
-}
-let fb = fizzBuzz(15)
-console.log("fb")
-console.log(fb)
+let o = Array.from({ length: 3 }, () => []);
+o[2] = [1, 3, 4]
+console.log(o)
+
+let x = Array(3).fill([]);
+x[1].push(2)
+console.log(x)

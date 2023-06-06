@@ -55,6 +55,7 @@
 - [338. Counting Bits](./338/)
 - [394. Decode String](./394/)
 - [424. Longest Repeating Character Replacement](./424/)
+- [435. Non-overlapping Intervals](./435/)
 - [647. Palindromic Substrings](./647/)
 - [771. Jewels and Stones](./771/)
 - [997. Find the Town Judge](./997/)
@@ -95,17 +96,19 @@ To run the js solution:
 node ./.../solution.js
 ```
 
+<!--
+TODO: Rmb to dd to TOC!
+-->
+
 Batch create:
 <!--
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=1512 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=435 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
 ---
 
-<!--
-TODO: Rmb to dd to TOC!
--->
+Author: Jing Hui PANG - [Email](mailto:jinghuipang99@gmail.com) | [GitHub](https://github.com/enkr1) | [LeetCode](https://leetcode.com/enkr1)
