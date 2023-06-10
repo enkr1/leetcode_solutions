@@ -4,7 +4,10 @@
  */
 const pacificAtlantic = (heights) => {
   console.log(heights);
-  let result = [], resultMap = new Map();
+
+  if (heights.length === 1 && heights[0].length === 1) return [[0, 0]];
+
+  let resultMap = new Map();
 
   const dfs = (start, prev, row, col, visitMap, oceanMap) => {
     if (row < 0 || col < 0 || row === heights.length || col === heights[0].length) {
@@ -42,15 +45,12 @@ const pacificAtlantic = (heights) => {
       if (!oceanMap.get("a")) oceanMap.set("a", ((row === heights.length - 1) || (col === heights[0].length - 1)))
 
       console.log(`>> Found`)
-      console.log(result)
       console.log(oceanMap)
-      // return
     }
 
     if (oceanMap.get("p") && oceanMap.get("a")) {
       console.log(">>>>>>>>>>>>>>> This is the ONE!!!")
       console.log(oceanMap);
-      // result.push([row, col])
       resultMap.set(start, true)
       console.log(resultMap);
 
@@ -69,21 +69,17 @@ const pacificAtlantic = (heights) => {
     dfs(start, curr, row - 1, col, visitMap, oceanMap);
   }
 
-  // dfs(Infinity, 0, 0, new Set())
   for (let row = 0; row < heights.length; row++) {
     for (let col = 0; col < heights[row].length; col++) {
       dfs(JSON.stringify([row, col]), Infinity, row, col, new Map(), new Map([["p", false], ["a", false]]), [])
-      // console.log(heights[row][col])
     }
   }
-
-  console.log("result")
-  console.log(result)
 
   console.log("resultMap")
   console.log(resultMap)
 
-  return [[]]; // 2d array
+
+  return Array.from(resultMap.entries(), entry => JSON.parse(entry[0])); // 2d array
 };
 
 
@@ -93,13 +89,14 @@ const pacificAtlantic = (heights) => {
 //   [2, 7, 2],
 // ]);
 
-let x = pacificAtlantic([
-  [1, 2, 2, 3, 5],
-  [3, 2, 3, 4, 4],
-  [2, 4, 5, 3, 1],
-  [6, 7, 1, 4, 5],
-  [5, 1, 1, 2, 4]
-]);
+// let x = pacificAtlantic([
+//   [1, 2, 2, 3, 5],
+//   [3, 2, 3, 4, 4],
+//   [2, 4, 5, 3, 1],
+//   [6, 7, 1, 4, 5],
+//   [5, 1, 1, 2, 4]
+// ]);
 
-// let x = pacificAtlantic([1]);
+let x = pacificAtlantic([1]);
+console.log("Result");
 console.log(x);
