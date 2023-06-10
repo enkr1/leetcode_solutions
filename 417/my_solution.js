@@ -51,7 +51,7 @@ const pacificAtlantic = (heights) => {
     if (oceanMap.get("p") && oceanMap.get("a")) {
       console.log(">>>>>>>>>>>>>>> This is the ONE!!!")
       console.log(oceanMap);
-      resultMap.set(start, true)
+      if (!resultMap.has(start)) resultMap.set(start, true)
       console.log(resultMap);
 
       return

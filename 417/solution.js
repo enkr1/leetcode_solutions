@@ -3,8 +3,6 @@
  * @return {number[][]}
  */
 const pacificAtlantic = (heights) => {
-  console.log(heights);
-
   if (heights.length === 1 && heights[0].length === 1) return [[0, 0]];
 
   let resultMap = new Map();
@@ -32,7 +30,7 @@ const pacificAtlantic = (heights) => {
 
     if (oceanMap.get("p") && oceanMap.get("a")) {
       resultMap.set(start, true)
-      return
+      return;
     }
 
     visitMap.set(coordinate, true)
