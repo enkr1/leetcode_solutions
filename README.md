@@ -29,6 +29,7 @@
 - [53. Maximum Subarray](./53/)
 - [56. Merge Intervals](./56/)
 - [57. Insert Interval](./57/)
+- [73. Set Matrix Zeroes](./73/)
 - [76. Minimum Window Substring](./76/)
 - [83. Remove Duplicates from Sorted List](./83/)
 - [121. Best Time to Buy and Sell Stock](./121/)
@@ -109,7 +110,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=128 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=73 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
