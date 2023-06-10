@@ -116,4 +116,4 @@ chapter=73 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$ch
 
 ---
 
-Author: Jing Hui PANG - [Email](mailto:jinghuipang99@gmail.com) | [GitHub](https://github.com/enkr1) | [LeetCode](https://leetcode.com/enkr1)
+Author: Jing Hui PANG - [LinkedIn](https://www.linkedin.com/in/jinghuipang/) | [Email](mailto:jinghuipang99@gmail.com) | [GitHub](https://github.com/enkr1) | [LeetCode](https://leetcode.com/enkr1) | [WakaTime](https://wakatime.com/@enkr1)
