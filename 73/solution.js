@@ -20,7 +20,7 @@ const setZeroes = (matrix) => {
     }
   }
 
-  coordinate = [];
+  let coordinate = [];
   for (let row = 0; row < matrix.length; row++) {
     for (let col = 0; col < matrix[row].length; col++) {
       if (matrix[row][col] === 0) {
