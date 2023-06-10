@@ -18,6 +18,11 @@ const pacificAtlantic = (heights) => {
   const pacificVisited = Array.from({ length: m }, () => new Array(n).fill(false));
   const atlanticVisited = Array.from({ length: m }, () => new Array(n).fill(false));
 
+  // console.log("pacificVisited")
+  // console.log(pacificVisited)
+  // console.log("atlanticVisited")
+  // console.log(atlanticVisited)
+
   // Add border cells to the respective queues and mark them as visited
   for (let i = 0; i < m; i++) {
     pacificQueue.push([i, 0]);
@@ -25,6 +30,7 @@ const pacificAtlantic = (heights) => {
     pacificVisited[i][0] = true;
     atlanticVisited[i][n - 1] = true;
   }
+
   for (let j = 0; j < n; j++) {
     pacificQueue.push([0, j]);
     atlanticQueue.push([m - 1, j]);
@@ -32,19 +38,39 @@ const pacificAtlantic = (heights) => {
     atlanticVisited[m - 1][j] = true;
   }
 
+  // NOTE: Form grids that wraps the sides that touch the ocean
+  console.log("pacificVisited")
+  console.log(pacificVisited)
+  console.log("pacificQueue")
+  console.log(pacificQueue)
+
+  console.log("atlanticVisited")
+  console.log(atlanticVisited)
+  console.log("atlanticQueue")
+  console.log(atlanticQueue)
+
   // Perform BFS from the Pacific Ocean
   bfs(pacificQueue, pacificVisited, heights);
 
   // Perform BFS from the Atlantic Ocean
   bfs(atlanticQueue, atlanticVisited, heights);
 
+  console.log("-----> After BFS")
+  console.log("pacificVisited")
+  console.log(pacificVisited)
+  console.log("pacificQueue")
+  console.log(pacificQueue)
+
+  console.log("atlanticVisited")
+  console.log(atlanticVisited)
+  console.log("atlanticQueue")
+  console.log(atlanticQueue)
+
   // Find cells that can flow to both oceans
   const result = [];
   for (let i = 0; i < m; i++) {
     for (let j = 0; j < n; j++) {
-      if (pacificVisited[i][j] && atlanticVisited[i][j]) {
-        result.push([i, j]);
-      }
+      if (pacificVisited[i][j] && atlanticVisited[i][j]) result.push([i, j]);
     }
   }
 
@@ -74,3 +100,21 @@ const bfs = (queue, visited, heights) => {
     }
   }
 };
+
+// let x = pacificAtlantic([
+//   [1, 2, 3],
+//   [6, 5, 4],
+//   [2, 7, 2],
+// ]);
+
+let x = pacificAtlantic([
+  [1, 2, 2, 3, 5],
+  [3, 2, 3, 4, 4],
+  [2, 4, 5, 3, 1],
+  [6, 7, 1, 4, 5],
+  [5, 1, 1, 2, 4]
+]);
+
+// let x = pacificAtlantic([[1]]);
+console.log("Result");
+console.log(x);
