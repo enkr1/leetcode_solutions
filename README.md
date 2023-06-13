@@ -64,6 +64,7 @@
 - [647. Palindromic Substrings](./647/)
 - [771. Jewels and Stones](./771/)
 - [997. Find the Town Judge](./997/)
+- [1365. How Many Numbers Are Smaller Than the Current Number](./1365/)
 - [1512. Number of Good Pairs](./1512/)
 - [1791. Find Center of Star Graph](./1791/)
 - [1909. Remove One Element to Make the Array Strictly Increasing](./1909/)
@@ -111,7 +112,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=135 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=1365 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
