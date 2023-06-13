@@ -83,7 +83,7 @@
 
 ### Elixir
 
-To run the elixir solution:
+To run the Elixir solution:
 ```sh
 iex ./.../solution.ex
 ```
@@ -98,7 +98,7 @@ chapter=997 && mkdir ./$chapter && touch ./$chapter/my_solution.ex && touch ./$c
 
 ### JavaScript
 
-To run the js solution:
+To run the JS solution:
 ```sh
 node ./.../solution.js
 ```
