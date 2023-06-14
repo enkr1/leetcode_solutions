@@ -17,6 +17,7 @@
 - [4. Median of Two Sorted Arrays](./4/)
 - [5. Longest Palindromic Substring](./5/)
 - [7. Generate Parentheses](./7/)
+- [9. Palindrome Number](./9/)
 - [11. Container With Most Water](./11/)
 - [15. 3Sum](./15/)
 - [19. Remove Nth Node From End of List](./19/)
