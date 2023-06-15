@@ -74,4 +74,13 @@
 // console.log(set.has(x))
 
 // Map
-console.log(new Map([["key", "value"], ["rrsrsr", true]]))
+// console.log(new Map([["key", "value"], ["rrsrsr", true]]))
+
+// Array
+// let l = [];
+// console.log(l)
+// l[1] = [1, 2, 3];
+// console.log(l)
+
+// Null
+console.log(null + 1);
