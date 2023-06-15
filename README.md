@@ -66,6 +66,7 @@
 - [647. Palindromic Substrings](./647/)
 - [771. Jewels and Stones](./771/)
 - [997. Find the Town Judge](./997/)
+- [1161. Maximum Level Sum of a Binary Tree](./1161/)
 - [1365. How Many Numbers Are Smaller Than the Current Number](./1365/)
 - [1512. Number of Good Pairs](./1512/)
 - [1791. Find Center of Star Graph](./1791/)
@@ -114,7 +115,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=530 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=1161 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
