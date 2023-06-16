@@ -83,4 +83,7 @@
 // console.log(l)
 
 // Null
-console.log(null + 1);
+// console.log(null + 1);
+
+// Decimal
+console.log(Math.round(324631.99999999994));
