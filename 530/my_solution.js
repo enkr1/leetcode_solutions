@@ -10,17 +10,63 @@ class TreeNode {
  * @return {number}
  */
 const getMinimumDifference = (root) => {
-  // console.log(Infinity - 1)
-  // console.log(1 - Infinity)
-  let queue = [root], list = [];
-  while (queue.length > 0) {
-    let curr = queue.shift(), left = curr.left, right = curr.right;
-    list.push(curr.val);
-    if (null !== left) queue.push(left);
-    if (null !== right) queue.push(right);
+  let list = [], visitedList = [];
+  // while (queue.length > 0) {
+  //   let curr = queue.shift(), left = curr.left, right = curr.right;
+  //   list.push(curr.val);
+  //   if (null !== left) queue.push(left);
+  //   if (null !== right) queue.push(right);
+  // }
+
+  // TODO: Study actually how to do a preorder i think my solution is not the best here
+  const inOrder = (node) => {
+    console.log(`node.val:`);
+    console.log(node)
+    console.log("list");
+    console.log(list);
+    // console.log(visitedList);
+
+    if (null === node) {
+      // visitedList.pop(); // current
+      let parent = visitedList.pop();
+      if (undefined === parent) return;
+      // console.log("visitedList");
+      // console.log(visitedList);
+      // console.log("parent");
+      // console.log(parent);
+
+      list.push(parent.val);
+      parent.left = null;
+      return inOrder(parent.right);
+    } else {
+      visitedList.push(node);
+      return inOrder(node.left);
+    }
+    // else {
+    //   // else if (null === node.right) {
+    //   //   list.push(node.val);
+    //   //   let parent = visitedList.pop();
+    //   //   parent.left == null;
+    //   //   return inOrder(parent);
+    //   // } else if (null !== node.left) {
+    //   //   visitedList.push(node);
+    //   //   return inOrder(node.left);
+    //   // } else if (null !== node.right) {
+    //   //   visitedList.push(node);
+    //   //   return inOrder(node.right);
+    //   // }
+    // }
+    // return inOrder();
   }
 
-  let min = Infinity, tmpMax = 0, tmpMin = Infinity;
+  inOrder(root);
+
+  console.log(visitedList);
+  console.log("list");
+  console.log(list);
+
+
+  // let min = Infinity, tmpMax = 0, tmpMin = Infinity;
   // for (let i = 0; i < list.length; i++) {
   //   tmpMax = Math.max(tmpMax, list[i]);
   //   tmpMin = Math.min(tmpMin, list[i]);
@@ -29,17 +75,25 @@ const getMinimumDifference = (root) => {
   //   }
   // }
 
+  // let min = Infinity;
   // bruteforce
-  for (let i = 0; i < list.length; i++) {
-    for (let j = 0; j < list.length; j++) {
-      if (i === j) continue;
-      min = Math.min(min, Math.abs(list[i] - list[j]))
-    }
+  // for (let i = 0; i < list.length; i++) {
+  //   for (let j = 0; j < list.length; j++) {
+  //     if (i === j) continue;
+  //     min = Math.min(min, Math.abs(list[i] - list[j]))
+  //   }
+  // }
+
+  let prev = list.shift(), min = Infinity;
+  while (list.length > 0) {
+    let curr = list.shift();
+    min = Math.min(min, curr - prev);
+    prev = curr;
   }
 
-  console.log(list)
-  console.log(min)
+  return min;
 };
+
 
 // [4,2,6,1,3]
 // let x = getMinimumDifference(new TreeNode(4,
