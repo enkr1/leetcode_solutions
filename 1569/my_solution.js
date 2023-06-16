@@ -1,7 +1,20 @@
-const factorial = (n, sum = 1n) => {
-  // console.log(`n:${n}, sum:${sum}`)
-  if (0n === n) return sum;
-  return factorial(n - 1n, sum * n)
+const cache = new Map();
+const factorial = (n) => {
+  let sum = 1n;
+  console.log(`n:${n}, sum:${sum}`)
+  console.log("cache")
+  console.log(cache)
+
+  if (cache.has(n)) return cache.get(n);
+  let tmpN = n;
+  while (n > 0n) {
+    sum *= n;
+    n--;
+  }
+
+  cache.set(tmpN, sum);
+  return sum;
+  return factorial(n - 1n, sum * n);
 }
 // combination
 const getCombination = (n, r) => {
