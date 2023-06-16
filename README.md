@@ -69,6 +69,7 @@
 - [1161. Maximum Level Sum of a Binary Tree](./1161/)
 - [1365. How Many Numbers Are Smaller Than the Current Number](./1365/)
 - [1512. Number of Good Pairs](./1512/)
+- [1569. Number of Ways to Reorder Array to Get Same BST](./1569/)
 - [1791. Find Center of Star Graph](./1791/)
 - [1909. Remove One Element to Make the Array Strictly Increasing](./1909/)
 - [1971. Find if Path Exists in Graph](./1971/)
@@ -115,7 +116,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=1161 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=1569 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
