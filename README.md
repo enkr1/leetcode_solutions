@@ -67,6 +67,7 @@
 - [771. Jewels and Stones](./771/)
 - [997. Find the Town Judge](./997/)
 - [1161. Maximum Level Sum of a Binary Tree](./1161/)
+- [1187. Make Array Strictly Increasing](./1187/)
 - [1365. How Many Numbers Are Smaller Than the Current Number](./1365/)
 - [1512. Number of Good Pairs](./1512/)
 - [1569. Number of Ways to Reorder Array to Get Same BST](./1569/)
@@ -116,7 +117,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=1569 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=1187 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 

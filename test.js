@@ -86,4 +86,6 @@
 // console.log(null + 1);
 
 // Decimal
-console.log(Math.round(324631.99999999994));
+// console.log(Math.round(324631.99999999994));
+
+console.log(0 > 0);
