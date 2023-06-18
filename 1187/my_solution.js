@@ -4,6 +4,7 @@
  * @return {number}
  */
 const makeArrayIncreasing = (arr1, arr2) => {
+  // TODO: Incomplete ...
   console.log(arr1)
   console.log(arr2)
 
