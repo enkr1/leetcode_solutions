@@ -26,29 +26,30 @@ const makeArrayIncreasing = (arr1, arr2) => {
 
     console.log(`prev:${prev} > arr1[i]:${arr1[i]}`)
     if (prev > arr1[i]) {
-      let expand = 0;
       let tmpCount = 0;
-      while (tmpCount === 0) {
-        console.log(`expand:${expand}`)
-        if ((i + expand) === arr1.length) break;
 
-        // Get smallest
-        let toReplace = [], smallest = Infinity;
-        for (let j = 0; j < arr2.length; j++) {
-          console.log(`> ? ${arr1[i - 2]} < ${arr2[j]} < ${arr1[i + expand]} - tmpPrev:${tmpPrev}, arr2[j]:${arr2[j]}`)
-          if (tmpPrev === arr2[j]) return -1;
-          if (arr1[i - 2] < arr2[j] && arr2[j] < arr1[i + expand]) {
-            tmpCount++;
-            // let btwItem = arr2[j];
-            // arr2.splice(j, 1)
-            // tmpPrev = btwItem;
-            // console.log(`> Y ${arr1[i - 2]} < ${arr2[j]} < ${arr1[i + expand]}`)
-            // arr1[i - 1] = btwItem;
-            // console.log(arr1)
-            toReplace.push(arr2[j])
-            smallest = Math.min(smallest, arr2[j]);
-          }
+      // Get smallest
+      let toReplace = [], smallest = Infinity;
+      for (let j = 0; j < arr2.length; j++) {
+        console.log(`j:${j}`)
+        console.log(arr2)
+        console.log(`> ? ${arr1[i - 2]} < ${arr2[j]} < ${arr1[i]} - tmpPrev:${tmpPrev}, arr2[j]:${arr2[j]}`)
+        if (tmpPrev === arr2[j]) {
+          console.log("ENd")
+          return -1;
         }
+        if (arr1[i - 2] < arr2[j] && arr2[j] < arr1[i]) {
+          // tmpCount++;
+          // let btwItem = arr2[j];
+          // arr2.splice(j, 1)
+          // tmpPrev = btwItem;
+          // console.log(`> Y ${arr1[i - 2]} < ${arr2[j]} < ${arr1[i + expand]}`)
+          // arr1[i - 1] = btwItem;
+          // console.log(arr1)
+          toReplace.push(arr2[j])
+          smallest = Math.min(smallest, arr2[j]);
+        }
+
         count += tmpCount;
         console.log("toReplace")
         console.log(toReplace)
@@ -57,8 +58,6 @@ const makeArrayIncreasing = (arr1, arr2) => {
         console.log("smallest")
         console.log(smallest)
         arr1[i - 1] = smallest;
-
-        expand++;
       }
     }
   }
