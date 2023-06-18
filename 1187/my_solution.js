@@ -19,48 +19,52 @@ const makeArrayIncreasing = (arr1, arr2) => {
   //       sortedArr2.push(firstPartOfArr2.shift());
   //     }
   //   }
-  let count = 0, tmpPrev = null;
+  let count = 0, tmpnext = null;
   for (let i = 0; i < arr1.length; i++) {
-    let prev = arr1[i - 1];
-    if (undefined === prev || undefined === arr1[i - 2]) continue;
+    let next = arr1[i + 1];
+    if (undefined === next || undefined === arr1[i + 2]) continue;
 
-    console.log(`prev:${prev} > arr1[i]:${arr1[i]}`)
-    if (prev > arr1[i]) {
-      let tmpCount = 0;
+    console.log(`-> i:${i}, curr:${arr1[i]} - next:${next} < arr1[i]:${arr1[i]}`)
+    if (next < arr1[i]) {
 
       // Get smallest
-      let toReplace = [], smallest = Infinity;
+      let smallest = Infinity, smallestIdx = -1;
       for (let j = 0; j < arr2.length; j++) {
-        console.log(`j:${j}`)
-        console.log(arr2)
-        console.log(`> ? ${arr1[i - 2]} < ${arr2[j]} < ${arr1[i]} - tmpPrev:${tmpPrev}, arr2[j]:${arr2[j]}`)
-        if (tmpPrev === arr2[j]) {
-          console.log("ENd")
+        console.log(`-> j:${j}, arr2[j]:${arr2[j]}`)
+
+        if (tmpnext === arr2[j]) {
+          console.log("ENd ...")
           return -1;
         }
-        if (arr1[i - 2] < arr2[j] && arr2[j] < arr1[i]) {
-          // tmpCount++;
-          // let btwItem = arr2[j];
-          // arr2.splice(j, 1)
-          // tmpPrev = btwItem;
-          // console.log(`> Y ${arr1[i - 2]} < ${arr2[j]} < ${arr1[i + expand]}`)
-          // arr1[i - 1] = btwItem;
-          // console.log(arr1)
-          toReplace.push(arr2[j])
-          smallest = Math.min(smallest, arr2[j]);
-        }
 
-        count += tmpCount;
-        console.log("toReplace")
-        console.log(toReplace)
-        console.log("arr1")
-        console.log(arr1)
-        console.log("smallest")
-        console.log(smallest)
-        arr1[i - 1] = smallest;
+        // if (arr1[i - 2] < arr2[j] && arr2[j] < arr1[i] && arr2[j] < smallest) {
+        if (arr1[i - 1] < arr2[j] && arr2[j] < smallest) {
+          console.log(`---> ${arr1[i - 1]} < [${arr2[j]}] < ${smallest}`)
+          smallest = arr2[j];
+          smallestIdx = j;
+        }
       }
+
+
+      if (Infinity !== smallest) {
+        console.log("smallest:" + smallest)
+        console.log("smallestIdx:" + smallestIdx)
+        arr2.splice(smallestIdx, 1);
+        arr1[i] = smallest;
+        count++;
+        // i--;
+      }
+
+      console.log("arr1:post")
+      console.log(arr1)
+
+      console.log("> arr2:post")
+      console.log(arr2)
     }
   }
+
+  console.log()
+
 
   return (0 === count) ? -1 : count;
 };
@@ -70,7 +74,8 @@ let x = null;
 // x = makeArrayIncreasing([1, 5, 3, 6, 7], [4, 3, 1]);
 // x = makeArrayIncreasing([1, 5, 3, 6, 7], [1, 6, 3, 3]);
 // x = makeArrayIncreasing([7, 6, 3, 0, 3], [9]);
-x = makeArrayIncreasing([0, 11, 6, 1, 4, 3], [5, 4, 11, 10, 1, 0]);
+x = makeArrayIncreasing([0, 11, 6, 1, 4, 3], [5, 4, 11, 10, 1, 0]); // 5
+x = makeArrayIncreasing([0, 10, 20, 30, 4], [1, 2, 3]); // 5
 
 console.log("Result");
 console.log(x);
