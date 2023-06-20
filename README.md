@@ -26,6 +26,7 @@
 - [22. Generate Parentheses](./22/)
 - [23. Merge k Sorted Lists](./23/)
 - [33. Search in Rotated Sorted Array](./33/)
+- [48. Rotate Image](./48/)
 - [49. Group Anagrams](./49/)
 - [53. Maximum Subarray](./53/)
 - [54. Spiral Matrix](./54/)
@@ -118,7 +119,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=54 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=48 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
