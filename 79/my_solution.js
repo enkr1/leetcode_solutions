@@ -15,16 +15,15 @@ const exist = (board, word) => {
   let visit = new Set();
 
   const expand = (r, c, i) => {
-    console.log(`r:${r}, c:${c}, i:${i}, visit:`)
+    console.log(`-> r:${r}, c:${c}, i:${i}, visited?:${visit.has(`${r}${c}`)}`)
     // console.log(wordList)
-    console.log(visit)
-    console.log("visited?:" + visit.has(`${r}${c}`))
+    // console.log(visit)
     // console.log(i)
     // console.log(word.length)
     // console.log(i === word.length)
 
     if (i === word.length) {
-      console.log(">>>>>>>> >TRUE")
+      console.log("---->>>>>>>>> TRUE")
       return true;
     }
 
@@ -41,6 +40,7 @@ const exist = (board, word) => {
 
     // visit[r][c] = 1;
     visit.add(`${r}${c}`);
+    console.log("> visit")
     console.log(visit)
     i++
 
@@ -49,6 +49,7 @@ const exist = (board, word) => {
       expand(r, c - 1, i) ||
       expand(r - 1, c, i);
 
+    console.log(`> Res:${res}`)
     console.log("... Deleting visit")
     console.log(visit)
     visit.delete(`${r}${c}`);
