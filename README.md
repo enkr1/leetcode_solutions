@@ -79,6 +79,11 @@
 - [1909. Remove One Element to Make the Array Strictly Increasing](./1909/)
 - [1971. Find if Path Exists in Graph](./1971/)
 - [2090. K Radius Subarray Averages](./2090/)
+- [2373. Largest Local Values in a Matrix](./2373/)
+
+---
+
+# Table of Contents
 
 ---
 
@@ -122,7 +127,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=1672 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=2373 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
