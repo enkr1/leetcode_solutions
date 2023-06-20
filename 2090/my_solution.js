@@ -7,24 +7,54 @@ const getAverages = (nums, k) => {
   if (k === 0) return nums;
   let result = [];
 
+  let sum = 0;
+  for (let i = 0; i < (k * 2); i++) {
+    sum += nums[i];
+  }
+  console.log("sum:" + sum)
+
   for (let i = 0; i < nums.length; i++) {
     if (i < k || i + k >= nums.length) {
       result.push(-1);
       continue;
     }
 
-    let tmpSum = 0;
-    console.log(`> ${i} `)
-    for (let j = i - k; j < i + k + 1; j++) {
-      console.log(`from ${j} to ${i + k}`)
-      tmpSum += nums[j];
-    }
+    if (undefined !== nums[i - k - 1]) sum -= nums[i - k - 1];
+    sum += nums[i + k];
 
-    result.push(Math.floor(tmpSum / ((k * 2) + 1)));
+    // for (let j = i - k; j < i + k + 1; j++) {
+    //   console.log(`from ${j} to ${i + k}`)
+    //   tmpSum += nums[j];
+    // }
+
+    result.push(Math.floor(sum / ((k * 2) + 1)));
   }
 
   return result;
 };
+
+// const getAverages = (nums, k) => {
+//   if (k === 0) return nums;
+//   let result = [];
+//
+//   for (let i = 0; i < nums.length; i++) {
+//     if (i < k || i + k >= nums.length) {
+//       result.push(-1);
+//       continue;
+//     }
+//
+//     let tmpSum = 0;
+//     console.log(`> ${i} `)
+//     for (let j = i - k; j < i + k + 1; j++) {
+//       console.log(`from ${j} to ${i + k}`)
+//       tmpSum += nums[j];
+//     }
+//
+//     result.push(Math.floor(tmpSum / ((k * 2) + 1)));
+//   }
+//
+//   return result;
+// };
 
 let x = null;
 // 9
