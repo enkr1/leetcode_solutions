@@ -33,6 +33,7 @@
 - [57. Insert Interval](./57/)
 - [73. Set Matrix Zeroes](./73/)
 - [76. Minimum Window Substring](./76/)
+- [79. Word Search](./79/)
 - [83. Remove Duplicates from Sorted List](./83/)
 - [121. Best Time to Buy and Sell Stock](./121/)
 - [128. Longest Consecutive Sequence](./128/)
@@ -119,7 +120,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=2090 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=79 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
