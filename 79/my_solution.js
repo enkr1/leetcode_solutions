@@ -10,15 +10,15 @@ const exist = (board, word) => {
   // wordList.shift()
   // console.log(wordList);
 
-  const expand = (r, c, visit, wordList) => {
-    console.log(`r:${r}, c:${c}, visit:`)
-    console.log(wordList)
+  const expand = (r, c, visit, i) => {
+    console.log(`r:${r}, c:${c}, i:${i}, visit:`)
+    // console.log(wordList)
     console.log(visit)
     // console.log(i)
     // console.log(word.length)
     // console.log(i === word.length)
 
-    if (0 === wordList.length) {
+    if (i === word.length) {
       console.log(">>>>>>>> >TRUE")
       doesExist = true;
     }
@@ -33,16 +33,21 @@ const exist = (board, word) => {
       return;
     }
 
-    if (wordList[0] === board[r][c]) {
-      console.log(`${wordList[0]} vs ${board[r][c]}`)
-      visit[r][c] = 1;
-      wordList.shift();
+    if (word[i] !== board[r][c]) return;
 
-      expand(r, c + 1, visit, wordList);
-      expand(r + 1, c, visit, wordList);
-      expand(r, c - 1, visit, wordList);
-      expand(r - 1, c, visit, wordList);
-    }
+    console.log(`${word[i]} vs ${board[r][c]}`)
+    visit[r][c] = 1;
+    i++
+    // wordList.shift();
+
+    // expand(r, c + 1, visit, wordList);
+    // expand(r + 1, c, visit, wordList);
+    // expand(r, c - 1, visit, wordList);
+    // expand(r - 1, c, visit, wordList);
+    expand(r, c + 1, visit, i);
+    expand(r + 1, c, visit, i);
+    expand(r, c - 1, visit, i);
+    expand(r - 1, c, visit, i);
   }
 
   // console.log(board)
@@ -51,8 +56,9 @@ const exist = (board, word) => {
       if (!doesExist && word[0] === board[r][c]) {
         console.log(`>>>>> ${word[0]} === ${board[r][c]}`)
         let visit = Array.from({ length: board.length }, () => Array.from({ length: board[0].length }, () => 0))
-        let wordList = word.split("");
-        expand(r, c, visit, wordList);
+        // let wordList = word.split("");
+        // expand(r, c, visit, wordList);
+        expand(r, c, visit, 0);
       }
     }
   }
@@ -71,11 +77,11 @@ let x = null;
 //   ["A", "D", "E", "E"]
 // ], "ABCCED")//true
 
-// x = exist([
-//   ["A", "B", "C", "E"],
-//   ["S", "F", "E", "S"],
-//   ["A", "D", "E", "E"]
-// ], "ABCEFSADEESE") // true
+x = exist([
+  ["A", "B", "C", "E"],
+  ["S", "F", "E", "S"],
+  ["A", "D", "E", "E"]
+], "ABCEFSADEESE") // true
 
 // x = exist(
 //   [
@@ -84,11 +90,11 @@ let x = null;
 //     ["A", "D", "E", "E"]
 //   ], "ABCB") // false
 
-x = exist(
-  [
-    ["a", "b"],
-    ["c", "d"]
-  ], "abcd") // false
+// x = exist(
+//   [
+//     ["a", "b"],
+//     ["c", "d"]
+//   ], "abcd") // false
 
 // x = exist(
 //   [
