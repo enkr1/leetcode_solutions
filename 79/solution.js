@@ -4,43 +4,40 @@
  * @return {boolean}
  */
 const exist = (board, word) => {
-  let doesExist = false;
+  let visit = new Set();
 
-  const expand = (r, c, visit, wordList) => {
-    if (0 === wordList.length) {
-      doesExist = true;
-    }
+  const expand = (r, c, i) => {
+    if (i === word.length) return true;
 
     if (
       r === board.length ||
       c === board[0].length ||
       r < 0 ||
       c < 0 ||
-      1 === visit[r][c]
-    ) {
-      return;
-    }
+      visit.has(`${r}${c}`) ||
+      word[i] !== board[r][c]
+    ) return false;
 
-    if (wordList[0] === board[r][c]) {
-      visit[r][c] = 1;
-      wordList.shift();
+    visit.add(`${r}${c}`);
+    i++
 
-      expand(r, c + 1, visit, wordList);
-      expand(r + 1, c, visit, wordList);
-      expand(r, c - 1, visit, wordList);
-      expand(r - 1, c, visit, wordList);
-    }
+    let res = expand(r, c + 1, i) ||
+      expand(r + 1, c, i) ||
+      expand(r, c - 1, i) ||
+      expand(r - 1, c, i);
+
+    visit.delete(`${r}${c}`);
+
+    return res;
   }
 
   for (let r = 0; r < board.length; r++) {
     for (let c = 0; c < board[r].length; c++) {
-      if (!doesExist && word[0] === board[r][c]) {
-        let visit = Array.from({ length: board.length }, () => Array.from({ length: board[0].length }, () => 0))
-        let wordList = word.split("");
-        expand(r, c, visit, wordList);
+      if (word[0] === board[r][c]) {
+        if (expand(r, c, 0)) return true;
       }
     }
   }
 
-  return doesExist;
+  return false;
 };
