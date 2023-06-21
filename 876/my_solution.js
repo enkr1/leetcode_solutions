@@ -10,7 +10,7 @@
  * @return {ListNode}
  */
 const middleNode = (head) => {
-  let s = 0, f = 0, sHead = head, fHead = head;
+  let sHead = head, fHead = head;
   while (null !== fHead) {
     if (null === fHead.next) return sHead;
     sHead = sHead.next;
