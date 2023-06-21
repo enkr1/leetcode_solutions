@@ -74,6 +74,7 @@
 - [1365. How Many Numbers Are Smaller Than the Current Number](./1365/)
 - [1512. Number of Good Pairs](./1512/)
 - [1569. Number of Ways to Reorder Array to Get Same BST](./1569/)
+- [1572. Matrix Diagonal Sum](./1572/)
 - [1672. Richest Customer Wealth](./1672/)
 - [1791. Find Center of Star Graph](./1791/)
 - [1909. Remove One Element to Make the Array Strictly Increasing](./1909/)
@@ -106,7 +107,7 @@ iex ./.../solution.ex
 
 Batch create:
 ```ssh
-chapter=997 && mkdir ./$chapter && touch ./$chapter/my_solution.ex && touch ./$chapter/solution.ex && alias x="iex ./$chapter/my_solution.ex"
+chapter=1572 && mkdir ./$chapter && touch ./$chapter/my_solution.ex && touch ./$chapter/solution.ex && alias x="iex ./$chapter/my_solution.ex"
 ```
 > then you can use `x` for quick debug.
 
@@ -128,7 +129,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=2448 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=1572 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
