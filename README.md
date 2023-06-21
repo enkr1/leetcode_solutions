@@ -68,6 +68,7 @@
 - [530. Minimum Absolute Difference in BST](./530/)
 - [647. Palindromic Substrings](./647/)
 - [771. Jewels and Stones](./771/)
+- [832. Flipping an Image](./832/)
 - [997. Find the Town Judge](./997/)
 - [1161. Maximum Level Sum of a Binary Tree](./1161/)
 - [1187. Make Array Strictly Increasing](./1187/)
@@ -129,7 +130,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=1572 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=832 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
