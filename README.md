@@ -68,6 +68,7 @@
 - [530. Minimum Absolute Difference in BST](./530/)
 - [647. Palindromic Substrings](./647/)
 - [771. Jewels and Stones](./771/)
+- [832. Flipping an Image](./832/)
 - [997. Find the Town Judge](./997/)
 - [1161. Maximum Level Sum of a Binary Tree](./1161/)
 - [1187. Make Array Strictly Increasing](./1187/)
@@ -75,12 +76,14 @@
 - [1480. Running Sum of 1d Array](./1480/)
 - [1512. Number of Good Pairs](./1512/)
 - [1569. Number of Ways to Reorder Array to Get Same BST](./1569/)
+- [1572. Matrix Diagonal Sum](./1572/)
 - [1672. Richest Customer Wealth](./1672/)
 - [1791. Find Center of Star Graph](./1791/)
 - [1909. Remove One Element to Make the Array Strictly Increasing](./1909/)
 - [1971. Find if Path Exists in Graph](./1971/)
 - [2090. K Radius Subarray Averages](./2090/)
 - [2373. Largest Local Values in a Matrix](./2373/)
+- [2448. Minimum Cost to Make Array Equal](./2448/)
 
 ---
 
@@ -106,7 +109,7 @@ iex ./.../solution.ex
 
 Batch create:
 ```ssh
-chapter=997 && mkdir ./$chapter && touch ./$chapter/my_solution.ex && touch ./$chapter/solution.ex && alias x="iex ./$chapter/my_solution.ex"
+chapter=1572 && mkdir ./$chapter && touch ./$chapter/my_solution.ex && touch ./$chapter/solution.ex && alias x="iex ./$chapter/my_solution.ex"
 ```
 > then you can use `x` for quick debug.
 
@@ -128,7 +131,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=1480 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=832 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
