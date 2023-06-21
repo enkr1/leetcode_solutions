@@ -4,30 +4,31 @@
  * @return {number}
  */
 const minCost = (nums, cost) => {
-  let minCost = Infinity, diffList = [];
+  let combined = nums.map((value, index) => ({ value, index }));
+  combined.sort((a, b) => a.value - b.value);
+  let sortedNums = combined.map(({ value }) => value);
+  let sortedCost = combined.map(({ index }) => cost[index]);
 
-  for (let i = 0; i < nums.length; i++) {
-    let tmpList = [];
-    for (let j = 0; j < nums.length; j++) {
-      let curr = nums[i], comp = nums[j]
-      if (i === j || curr === comp) continue;
-      tmpList.push((curr > comp) ? curr - comp : comp - curr);
-    }
-    diffList.push(tmpList);
+  let min = 0, prefixCost = Array.from({ length: nums.length }, () => 0);
+  prefixCost[0] = sortedCost[0];
+
+  for (let i = 1; i < sortedNums.length; i++) {
+    min += (sortedNums[i] - sortedNums[0]) * sortedCost[i];
   }
 
-  let idx = 0;
-  while (0 < diffList.length) {
-    let curr = diffList.shift(), tmpCostList = [...cost], tmpCostCount = 0;
-    tmpCostList.splice(idx, 1);
-
-    for (let i = 0; i < curr.length; i++) {
-      tmpCostCount += curr[i] * tmpCostList[i];
-    }
-
-    minCost = Math.min(minCost, tmpCostCount);
-    idx++;
+  for (let i = 1; i < sortedNums.length; i++) {
+    prefixCost[i] = prefixCost[i - 1] + sortedCost[i];
   }
 
-  return minCost;
+  let tmpMin = min;
+  for (let i = 1; i < sortedNums.length; i++) {
+    let gap = sortedNums[i] - sortedNums[i - 1];
+
+    tmpMin += prefixCost[i - 1] * gap;
+    tmpMin -= (prefixCost[nums.length - 1] - prefixCost[i - 1]) * gap;
+
+    min = Math.min(min, tmpMin);
+  }
+
+  return min;
 };
