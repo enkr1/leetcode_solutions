@@ -61,6 +61,7 @@
 - [371. Sum of Two Integers](./371/)
 - [374. Top K Frequent Elements](./374/)
 - [338. Counting Bits](./338/)
+- [383. Ransom Note](./383/)
 - [394. Decode String](./394/)
 - [412. Fizz Buzz](./412/)
 - [417. Pacific Atlantic Water Flow](./417/)
@@ -70,6 +71,7 @@
 - [647. Palindromic Substrings](./647/)
 - [771. Jewels and Stones](./771/)
 - [832. Flipping an Image](./832/)
+- [876. Middle of the Linked List](./876/)
 - [997. Find the Town Judge](./997/)
 - [1161. Maximum Level Sum of a Binary Tree](./1161/)
 - [1187. Make Array Strictly Increasing](./1187/)
@@ -133,7 +135,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=876 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=383 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 

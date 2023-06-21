@@ -90,13 +90,16 @@
 
 // console.log(0 > 0);
 
-console.log(0 ^ 0);
-console.log(1 ^ 0);
-// convert 0 -> 1; 1 -> 0
-console.log(0 ^ 1);
-console.log(1 ^ 1);
-console.log()
-console.log(0 & 0);
-console.log(1 & 0);
-console.log(0 & 1);
-console.log(1 & 1);
+// console.log(0 ^ 0);
+// console.log(1 ^ 0);
+// // convert 0 -> 1; 1 -> 0
+// console.log(0 ^ 1);
+// console.log(1 ^ 1);
+// console.log()
+// console.log(0 & 0);
+// console.log(1 & 0);
+// console.log(0 & 1);
+// console.log(1 & 1);
+
+// Array
+console.log(Array(26).fill(0));
