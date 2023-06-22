@@ -36,6 +36,7 @@
 - [76. Minimum Window Substring](./76/)
 - [79. Word Search](./79/)
 - [83. Remove Duplicates from Sorted List](./83/)
+- [104. Maximum Depth of Binary Tree](./104/)
 - [121. Best Time to Buy and Sell Stock](./121/)
 - [128. Longest Consecutive Sequence](./128/)
 - [133. Clone Graph](./133/)
@@ -136,7 +137,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=714 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=104 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
