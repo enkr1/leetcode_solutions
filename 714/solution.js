@@ -4,17 +4,13 @@
  * @return {number}
 */
 const maxProfit = (prices, fee) => {
-  let l = 0, r = 0, cost = 0, prevSm = Infinity;
+  let free = 0, hold = -prices[0];
 
-  while (r < prices.length) {
-    if (prices[r + 1] === undefined || prices[r] > prices[r + 1]) {
-      cost = Math.max(cost, ((prices[r] - prevSm - fee)), ((prices[r] - prices[l] - fee) + cost));
-      l = r + 1;
-    }
-
-    r++;
-    prevSm = Math.min(prices[l], prevSm);
+  for (let i = 0; i < prices.length; i++) {
+    tmp = hold;
+    hold = Math.max(hold, free - prices[i])
+    free = Math.max(free, tmp + prices[i] - fee)
   }
 
-  return cost;
+  return free;
 };
