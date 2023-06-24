@@ -102,4 +102,5 @@
 // console.log(1 & 1);
 
 // Array
-console.log(Array(26).fill(0));
+// console.log(Array(26).fill(0));
+
