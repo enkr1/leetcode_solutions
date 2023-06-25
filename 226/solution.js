@@ -11,26 +11,20 @@ class TreeNode {
  */
 function invertTree(root) {
   if (null === root) return null;
-  if (null === root.val) return new TreeNode();
 
-  const invertNode = (node) => {
-    if (null === node) return node;
-    let left = node.left, right = node.right;
+  let left = root.left, right = root.right;
 
-    if (null !== node.left) {
-      node.right = left;
-      // node.left = right;
-      invertNode(node.right);
-    }
-
-    if (null !== node.right) {
-      node.left = right;
-      node.right = left;
-      invertNode(node.left);
-    }
-
-    return node;
+  if (null !== root.left) {
+    root.right = left;
+    // root.left = right;
+    invertTree(root.right);
   }
 
-  return invertNode(root);
+  if (null !== root.right) {
+    root.left = right;
+    root.right = left;
+    invertTree(root.left);
+  }
+
+  return root;
 }

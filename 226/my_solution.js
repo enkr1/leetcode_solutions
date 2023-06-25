@@ -11,46 +11,49 @@ class TreeNode {
  */
 function invertTree(root) {
   if (null === root) return null;
-  if (null === root.val) return new TreeNode();
 
-  const invertNode = (node) => {
-    if (null === node) return node;
-    let left = node.left, right = node.right;
+  let left = root.left, right = root.right;
 
-    if (null !== node.left) {
-      node.right = left;
-      // node.left = right;
-      invertNode(node.right);
-    }
-
-    if (null !== node.right) {
-      node.left = right;
-      node.right = left;
-      invertNode(node.left);
-    }
-
-
-    return node;
+  if (null !== root.left) {
+    root.right = left;
+    // root.left = right;
+    invertTree(root.right);
   }
 
-  //   while (queue.length > 0) {
-  //     let curr = queue.shift(), left = curr.left, right = curr.right;
-  //
-  //     if (null !== left) {
-  //       queue.push(left);
-  //       dummy.right = left;
-  //     }
-  //
-  //     if (null !== right) {
-  //       queue.push(right);
-  //       dummy.left = right;
-  //     }
-  //
-  //     dummy = dummy;
-  //   }
+  if (null !== root.right) {
+    root.left = right;
+    root.right = left;
+    invertTree(root.left);
+  }
 
-  return invertNode(root);
+  return root;
 }
+// function invertTree(root) {
+//   if (null === root) return null;
+//   if (null === root.val) return new TreeNode();
+//
+//   const invertNode = (node) => {
+//     if (null === node) return node;
+//     let left = node.left, right = node.right;
+//
+//     if (null !== node.left) {
+//       node.right = left;
+//       // node.left = right;
+//       invertNode(node.right);
+//     }
+//
+//     if (null !== node.right) {
+//       node.left = right;
+//       node.right = left;
+//       invertNode(node.left);
+//     }
+//
+//
+//     return node;
+//   }
+//
+//   return invertNode(root);
+// }
 
 //[4,2,7,1,3,6,9]
 let x =
