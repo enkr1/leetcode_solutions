@@ -39,6 +39,7 @@
 - [100. Same Tree](./100/)
 - [102. Binary Tree Level Order Traversal](./102/)
 - [104. Maximum Depth of Binary Tree](./104/)
+- [105. Construct Binary Tree from Preorder and Inorder Traversal](./105/)
 - [121. Best Time to Buy and Sell Stock](./121/)
 - [128. Longest Consecutive Sequence](./128/)
 - [133. Clone Graph](./133/)
@@ -142,7 +143,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=102 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=105 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
