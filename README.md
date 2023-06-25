@@ -71,6 +71,7 @@
 - [424. Longest Repeating Character Replacement](./424/)
 - [435. Non-overlapping Intervals](./435/)
 - [530. Minimum Absolute Difference in BST](./530/)
+- [572. Subtree of Another Tree](./572/)
 - [647. Palindromic Substrings](./647/)
 - [771. Jewels and Stones](./771/)
 - [714. Best Time to Buy and Sell Stock with Transaction Fee](./714/)
@@ -140,7 +141,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=226 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=572 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
