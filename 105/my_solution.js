@@ -14,51 +14,57 @@ class TreeNode {
 var buildTree = function (preorder, inorder) {
   let tree = new TreeNode()
 
-  const buildNode = (node, order) => {
+  const buildNode = (node, order) => { // order = inorder
     // if (null === node) return;
     if (0 === order.length) return;
-    let curr = order[0],
-      tmpInorder = [...inorder],
-      inIdx = tmpInorder.indexOf(curr),
-      leftInorder = tmpInorder.splice(0, inIdx),
-      rightInorder = tmpInorder.splice(inIdx, tmpInorder.length - 1);
+    let curr = preorder.shift();
+
+    console.log("-> order.includes(curr)");
+    console.log("curr");
+    console.log(curr);
+    console.log("order");
+    console.log(order);
+    console.log(order.includes(curr));
+    if (!order.includes(curr)) return;
+
+    let
+      tmpInorder1 = [...order],
+      tmpInorder2 = [...order],
+      inIdx = order.indexOf(curr),
+      leftInorder = tmpInorder1.splice(0, inIdx),
+      rightInorder = tmpInorder2.splice(inIdx + 1, tmpInorder2.length - 1);
 
     console.log(`-> inIdx:${inIdx}, curr:${curr}, order:${order}`);
     console.log("from inorder:");
     console.log(leftInorder, rightInorder);
 
     // last idx from inorder of the left side is the end of the left leaves in pre
-    let tmpPreorder = [...order],
-      lastPreIdx = order.indexOf(leftInorder[leftInorder.length - 1]),
-      leftPreorder = tmpPreorder.splice(1, lastPreIdx),
-      rightPreorder = tmpPreorder.splice(lastPreIdx, tmpPreorder.length - 1);
-    console.log(">> PRE")
-    console.log(leftPreorder, rightPreorder)
+    // let tmpPreorder = [...order],
+    //   lastPreIdx = order.indexOf(leftInorder[leftInorder.length - 1]),
+    //   leftPreorder = tmpPreorder.splice(1, lastPreIdx),
+    //   rightPreorder = tmpPreorder.splice(lastPreIdx, tmpPreorder.length - 1);
+    // console.log(">> PRE")
+    // console.log(leftPreorder, rightPreorder)
 
     node.val = curr;
     console.log("node")
     console.log(node)
 
-
-    console.log(order);
     // if (inorder.indexOf(preorder[0]) < inIdx) {
     //   console.log(`-> l ${inorder.indexOf(preorder[0])} < ${inIdx}`);
-    if (leftPreorder.length > 0) {
-      //   // yes it is left leave
-      node.left = new TreeNode(order[1]);
-      console.log(`Adding ${order[1]} to left`)
-      buildNode(node.left, leftPreorder);
+    if (leftInorder.length > 0) {
+      node.left = new TreeNode();
+      console.log(`Adding left`)
+      buildNode(node.left, leftInorder);
     }
 
-    if (rightPreorder.length > 0) {
-      //   console.log(`-> r ${inorder.indexOf(preorder[0])} > ${inIdx}`);
-      console.log(`Adding ${order[lastPreIdx + 1]} to right`)
-      node.right = new TreeNode(order[lastPreIdx + 1]);
-      buildNode(node.right, rightPreorder);
+    if (rightInorder.length > 0) {
+      node.right = new TreeNode();
+      buildNode(node.right, rightInorder);
     }
   }
 
-  buildNode(tree, [...preorder]);
+  buildNode(tree, [...inorder]);
 
   return tree;
 };
@@ -66,7 +72,8 @@ var buildTree = function (preorder, inorder) {
 let x =
   // buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])
   // buildTree([-1], [-1])
-  buildTree([1, 2, 3], [3, 2, 1])
+  // buildTree([1, 2, 3], [3, 2, 1])
+  buildTree([1, 2], [1, 2])
 // buildTree([3, 9, 8, 6, 7, 20], [6, 8, 9, 7, 3, 20])
 
 console.log("Result")
