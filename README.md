@@ -37,6 +37,7 @@
 - [79. Word Search](./79/)
 - [83. Remove Duplicates from Sorted List](./83/)
 - [100. Same Tree](./100/)
+- [102. Binary Tree Level Order Traversal](./102/)
 - [104. Maximum Depth of Binary Tree](./104/)
 - [121. Best Time to Buy and Sell Stock](./121/)
 - [128. Longest Consecutive Sequence](./128/)
@@ -141,7 +142,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=572 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=102 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
