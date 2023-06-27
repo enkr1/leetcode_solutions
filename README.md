@@ -59,6 +59,7 @@
 - [213. House Robber II](./213/)
 - [217. Contains Duplicate](./217/)
 - [226. Invert Binary Tree](./226/)
+- [235. Lowest Common Ancestor of a Binary Search Tree](./235/)
 - [238. Product of Array Except Self](./238/)
 - [242. Valid Anagram](./242/)
 - [268. Missing Number](./268/)
@@ -136,7 +137,7 @@ node ./.../solution.js
 ```
 
 <!--
-TODO: Rmb to dd to TOC!
+TODO: Rmb to it into the TOC!
 -->
 
 Batch create:
@@ -144,7 +145,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=98 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=235 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
