@@ -11,7 +11,7 @@ class TreeNode {
  * @return {boolean}
  */
 var isValidBST = function (root) {
-  let leftAncestors = [], rightAncestors = [];
+  let leftAncestors = [root.val], rightAncestors = [root.val];
 
   const exploreLeft = (node, list) => {
     console.log(`exploreLeft`)
@@ -34,23 +34,30 @@ var isValidBST = function (root) {
     return true || exploreLeft(node, list);
   }
 
-  let queue = [root];
+  const explore = (queue, list) => {
+    while (queue.length > 0) {
+      let curr = queue.shift(), left = curr.left, right = curr.right;
 
-  while (queue.length > 0) {
-    let curr = queue.shift(), left = curr.left, right = curr.right;
+      if ((left?.val ?? -Infinity) >= curr.val || (right?.val ?? Infinity) <= curr.val) return false;
 
-    if ((left?.val ?? -Infinity) >= curr.val || (right?.val ?? Infinity) <= curr.val) return false;
+      if (null !== left) {
+        queue.push(left);
+        if (!exploreLeft(left, list)) return false;
+      }
 
-    if (null !== left) {
-      queue.push(left);
-      if (!exploreLeft(left, leftAncestors)) return false;
+
+      if (null !== right) {
+        queue.push(right);
+        if (!exploreRight(right, list)) return false;
+      }
     }
+  }
 
-
-    if (null !== right) {
-      queue.push(right);
-      if (!exploreRight(right, rightAncestors)) return false;
-    }
+  if (root.left !== null) {
+    explore([root.left], leftAncestors);
+  }
+  if (root.right !== null) {
+    explore([root.right], rightAncestors);
   }
 
   return true;

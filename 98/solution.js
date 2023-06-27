@@ -11,38 +11,11 @@ class TreeNode {
  * @return {boolean}
  */
 var isValidBST = function (root) {
-  let leftAncestors = [], rightAncestors = [];
-
-  const exploreLeft = (node) => {
-    if (node.val !== Math.min(leftAncestors.concat([node.val]))) return false;
-    leftAncestors.push(node.val);
-    return true;
+  const isTreeValid = (node, min, max) => {
+    if (null === node) return true;
+    if (!(min < node.val && node.val < max)) return false;
+    return isTreeValid(node.left, min, node.val) && isTreeValid(node.right, node.val, max);
   }
 
-  const exploreRight = (node) => {
-    if (node.val !== Math.max(rightAncestors.concat([node.val]))) return false;
-    rightAncestors.push(node.val);
-    return true;
-  }
-
-  let queue = [root];
-
-  while (queue.length > 0) {
-    let curr = queue.shift(), left = curr.left, right = curr.right;
-
-    if ((left?.val ?? -Infinity) >= curr.val || (right?.val ?? Infinity) <= curr.val) return false;
-
-    if (null !== left) {
-      queue.push(left);
-      if (!exploreLeft(left)) return false;
-    }
-
-
-    if (null !== right) {
-      queue.push(right);
-      if (!exploreRight(right)) return false;
-    }
-  }
-
-  return true;
+  return isTreeValid(root.left, -Infinity, root.val) && isTreeValid(root.right, root.val, Infinity);
 };
