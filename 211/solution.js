@@ -23,7 +23,6 @@ class WordDictionary {
    * @return {void}
    */
   addWord(word) {
-
     let root = this.root;
     for (let i = 0; i < word.length; i++) {
       let idx = root.getIdx(word[i]);

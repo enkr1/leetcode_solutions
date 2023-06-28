@@ -50,12 +50,14 @@
 
 // Fill
 // let o = Array.from({ length: 3 }, () => []);
+// let o = Array(3).fill([])//.map(() => []);
 // o[2] = [1, 3, 4]
 // console.log(o)
 //
-// let x = Array(3).fill([]);
-// x[1].push(2)
-// console.log(x)
+let x = Array(3).fill([]);
+x[1].push(2)
+// x[1] = 2
+console.log(x)
 //
 // const g = Array(3).fill().map(() => []);
 // console.log(g)
@@ -103,4 +105,3 @@
 
 // Array
 // console.log(Array(26).fill(0));
-
