@@ -15,19 +15,16 @@ var kthSmallest = function (root, k) {
   let kValue = null, parents = [];
 
   const inOrder = (node) => {
-    console.log("parents")
-    console.log(parents)
     if (node === null || k === 0) return;
 
-    if (node.left !== null) { // going left
+    if (node.left !== null) {
       parents.push(node);
       inOrder(node.left);
-    } else { // returning to right
+    } else {
       k--;
       kValue = node.val;
 
       if (node.right === null && parents.length > 0) {
-        console.log("r null")
         let parent = parents.pop();
         parent.left = null;
         inOrder(parent);

@@ -12,7 +12,7 @@ class TreeNode {
  * @return {number}
  */
 var kthSmallest = function (root, k) {
-  let list = [], kValue = null, parents = [];
+  let list = [], kValue = null, parents = []; // stack
 
   const inOrder = (node) => {
     console.log("parents")
@@ -42,6 +42,37 @@ var kthSmallest = function (root, k) {
 
   return kValue;
 };
+// var kthSmallest = function (root, k) {
+//   let list = [], kValue = null, parents = [];
+//
+//   const inOrder = (node) => {
+//     console.log("parents")
+//     console.log(parents)
+//     if (node === null || k === 0) return;
+//
+//     if (node.left !== null) { // going left
+//       parents.push(node);
+//       inOrder(node.left);
+//     } else { // returning to right
+//       k--;
+//       kValue = node.val;
+//       list.push(node.val);
+//
+//       if (node.right === null && parents.length > 0) {
+//         console.log("r null")
+//         let parent = parents.pop();
+//         parent.left = null;
+//         inOrder(parent);
+//       } else {  // going to right if there is a right node otherwise we go to the the last parent
+//         inOrder(node.right);
+//       }
+//     }
+//   }
+//
+//   inOrder(root);
+//
+//   return kValue;
+// };
 
 
 let x =
