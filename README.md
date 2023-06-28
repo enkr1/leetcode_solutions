@@ -56,6 +56,7 @@
 - [200. Number of Islands](./200/)
 - [206. Reverse Linked List](./206/)
 - [207. Course Schedule](./207/)
+- [211. Design Add and Search Words Data Structure](./211/)
 - [213. House Robber II](./213/)
 - [217. Contains Duplicate](./217/)
 - [226. Invert Binary Tree](./226/)
@@ -146,7 +147,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=230 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=211 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
