@@ -54,13 +54,19 @@
 // o[2] = [1, 3, 4]
 // console.log(o)
 //
-let x = Array(3).fill([]);
-x[1].push(2)
-// x[1] = 2
-console.log(x)
+// let x = Array(3).fill([]);
+// x[1].push(2)
+// // x[1] = 2
+// console.log(x)
 //
-// const g = Array(3).fill().map(() => []);
-// console.log(g)
+n = 5;
+const g =
+  // Array(n).fill([]);
+// Array(n).fill().map(() => []);
+Array.from({ length: n }, () => []);
+g[1].push(2)
+
+console.log(g)
 
 
 // Set
@@ -75,8 +81,13 @@ console.log(x)
 // console.log(set.has([1, 2]))
 // console.log(set.has(x))
 
-// Map
-// console.log(new Map([["key", "value"], ["rrsrsr", true]]))
+// // Map
+// let map = new Map([["key", "value"], ["rrsrsr", true]])
+// console.log(map)
+// console.log(map.values()) // "value", true
+// for (let value of map.values()) {
+//   console.log(`in loop:${value}`)
+// }
 
 // Array
 // let l = [];
