@@ -12,37 +12,21 @@ class TreeNode {
  * @return {number}
  */
 function maxPathSum(root) {
-  let queue = [root], max = root.val;
+  let max = root.val;
 
   const exploreToFindMax = (node) => {
-    if (node === null) return;
+    if (node === null) return 0;
 
-    const defaultForNull = -Infinity;
+    let exploreLeftVal = exploreToFindMax(node.left),
+      exploreRightVal = exploreToFindMax(node.right),
+      treeMax = node.val + exploreLeftVal + exploreRightVal;
 
-    let treeLeftVal = 0, exploreLeftVal = defaultForNull;
-    if (node.left !== null) {
-      treeLeftVal = node.left.val;
-      exploreLeftVal = node.val + exploreToFindMax(node.left);
-    }
+    max = Math.max(max, treeMax);
 
-    let treeRightVal = 0, exploreRightVal = defaultForNull;
-    if (node.right !== null) {
-      treeRightVal = node.right.val;
-      exploreRightVal = node.val + exploreToFindMax(node.right);
-    }
-
-    let treeMax = node.val + treeLeftVal + treeRightVal; // 0 represents not picking any of them
-
-    max = Math.max(max, treeMax, exploreLeftVal, exploreRightVal);
-    return node.val + Math.max(exploreLeftVal, exploreRightVal, 0);
+    return Math.max(node.val + Math.max(exploreLeftVal, exploreRightVal), 0);
   };
 
-  while (queue.length > 0) {
-    let curr = queue.shift(), left = curr.left, right = curr.right;
-    if (left !== null) queue.push(left);
-    if (right !== null) queue.push(right);
-    exploreToFindMax(curr);
-  }
+  exploreToFindMax(root);
 
   return max;
 }
