@@ -45,6 +45,7 @@
 - [128. Longest Consecutive Sequence](./128/)
 - [133. Clone Graph](./133/)
 - [135. Candy](./135/)
+- [124. Binary Tree Maximum Path Sum](./124/)
 - [125. Valid Palindrome](./125/)
 - [141. Linked List Cycle](./141/)
 - [143. Reorder List](./143/)
@@ -148,7 +149,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=209 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=124 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
