@@ -98,6 +98,7 @@
 - [1569. Number of Ways to Reorder Array to Get Same BST](./1569/)
 - [1572. Matrix Diagonal Sum](./1572/)
 - [1672. Richest Customer Wealth](./1672/)
+- [1768. Merge Strings Alternately](./1768/)
 - [1791. Find Center of Star Graph](./1791/)
 - [1909. Remove One Element to Make the Array Strictly Increasing](./1909/)
 - [1971. Find if Path Exists in Graph](./1971/)
@@ -151,7 +152,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=212 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=1768 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
