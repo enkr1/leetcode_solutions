@@ -1,3 +1,24 @@
+class TrieNode {
+  constructor() {
+    this.isEndOfWord = false;
+    this.children = Array.from({ length: 26 }, () => null)
+  }
+
+  getIdx(char) {
+    return char.charCodeAt() - "a".charCodeAt();
+  }
+
+  insert(word) {
+    let char = word.split(""), root = this;
+    while (char.length > 0) {
+      let curr = char.shift(), idx = this.getIdx(curr);
+      if (root.children[idx] === null) root.children[idx] = new TrieNode()
+      root = root.children[idx];
+    }
+    root.isEndOfWord = true;
+  }
+}
+
 /**
  * @param {character[][]} board
  * @param {string[]} words
@@ -5,43 +26,51 @@
  */
 var findWords = function (board, words) {
   let foundList = [],
-    visited = Array.from({ length: board.length }, () => Array.from({ length: board[0].length }, () => false))
+    visited = Array.from({ length: board.length }, () => Array.from({ length: board[0].length }, () => false)),
+    trieNode = new TrieNode(),
+    foundSet = new Set()
 
-
-  const exploreNextWord = (word, i, r, c) => {
-    if (word.length === i) return true;
-
+  // dfs
+  const exploreNextWord = (children, r, c, str) => {
     if (
       r < 0 || c < 0 ||
       r === board.length || c === board[0].length ||
-      visited[r][c] ||
-      board[r][c] !== word[i]
+      visited[r][c]
     ) return false;
 
 
+    let childTrieNode = children[trieNode.getIdx(board[r][c])];
+    str += board[r][c];
+
+    if (childTrieNode === null) {
+      return false;
+    } else if (childTrieNode.isEndOfWord) {
+      if (!foundSet.has(str)) {
+        foundSet.add(str)
+        foundList.push(str)
+        // return true;
+      }
+    }
+
     visited[r][c] = true;
-    i++;
 
-    let res =
-      exploreNextWord(word, i, r + 1, c) ||
-      exploreNextWord(word, i, r, c + 1) ||
-      exploreNextWord(word, i, r - 1, c) ||
-      exploreNextWord(word, i, r, c - 1);
+    let newChildren = childTrieNode.children;
+    exploreNextWord(newChildren, r + 1, c, str);
+    exploreNextWord(newChildren, r, c + 1, str);
+    exploreNextWord(newChildren, r - 1, c, str);
+    exploreNextWord(newChildren, r, c - 1, str);
 
+    // Unmark current cell
     visited[r][c] = false;
-
-    return res;
   }
 
   for (let i = 0; i < words.length; i++) {
-    for (let r = 0; r < board.length; r++) {
-      for (let c = 0; c < board[r].length; c++) {
-        if (board[r][c] === words[i][0]) {
-          if (exploreNextWord(words[i], 0, r, c) && !foundList.includes(words[i])) {
-            foundList.push(words[i]);
-          }
-        }
-      }
+    trieNode.insert(words[i]);
+  }
+
+  for (let r = 0; r < board.length; r++) {
+    for (let c = 0; c < board[r].length; c++) {
+      exploreNextWord(trieNode.children, r, c, "")
     }
   }
 
