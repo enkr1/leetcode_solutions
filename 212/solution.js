@@ -38,18 +38,14 @@ var findWords = function (board, words) {
       visited[r][c]
     ) return false;
 
-
     let childTrieNode = children[trieNode.getIdx(board[r][c])];
     str += board[r][c];
 
-    if (childTrieNode === null) {
-      return false;
-    } else if (childTrieNode.isEndOfWord) {
-      if (!foundSet.has(str)) {
-        foundSet.add(str)
-        foundList.push(str)
-        // return true;
-      }
+    if (childTrieNode === null) return;
+
+    if (childTrieNode.isEndOfWord && !foundSet.has(str)) { // If it hasn't been found yet && it is the end of the word.
+      foundSet.add(str)
+      foundList.push(str)
     }
 
     visited[r][c] = true;
