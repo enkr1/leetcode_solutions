@@ -15,9 +15,7 @@ const NULL_KEY = "x";
  */
 var serialize = function (root) {
   if (root === null) return NULL_KEY;
-  let l = serialize(root.left), r = serialize(root.right);
-
-  return root.val + "," + l + "," + r;
+  return root.val + "," + serialize(root.left) + "," + serialize(root.right);
 };
 
 /**

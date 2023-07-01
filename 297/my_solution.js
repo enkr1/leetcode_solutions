@@ -14,47 +14,54 @@ const NULL_KEY = "x";
  */
 var serialize = function (root) {
   if (root === null) return NULL_KEY;
-  //   let storeList = [], stack = [];
-  //
-  //   // nlr
-  //   const preorder = (node) => {
-  //     storeList.push(node.val);
-  //
-  //     if (node.left !== null) {
-  //       if (node.right !== null) {
-  //         stack.push(node.right);
-  //       }
-  //       let tmp = node.left;
-  //       preorder(tmp);
-  //     } else {
-  //       storeList.push(NULL_KEY);
-  //
-  //       if (node.right !== null) {
-  //         let tmp = node.right;
-  //         preorder(tmp);
-  //       } else {
-  //         storeList.push(NULL_KEY);
-  //         if (stack.length > 0) {
-  //           let parent = stack.pop();
-  //           preorder(parent);
-  //         }
-  //       }
-  //     }
-  //   }
-  //
-  //   console.log("root")
-  //   console.log(root)
-  //   preorder(root);
-  //   console.log(storeList);
-
-  let l = serialize(root.left),
-    r = serialize(root.right);
-
-
-
-  return root.val + "," + l + "," + r;
-  return JSON.stringify(storeList);
+  return root.val + "," + serialize(root.left) + "," + serialize(root.right);
 };
+
+// QUESTION: DK why is it not working ...
+// var serialize = function (root) {
+//   if (root === null) return NULL_KEY;
+//
+//   let storeList = [], stack = [];
+//
+//   // nlr
+//   const preorder = (node) => {
+//     storeList.push(node.val);
+//
+//     if (node.left !== null) {
+//       if (node.right !== null) {
+//         stack.push(node.right);
+//       }
+//       let tmp = node.left;
+//       preorder(tmp);
+//     } else {
+//       storeList.push(NULL_KEY);
+//
+//       if (node.right !== null) {
+//         let tmp = node.right;
+//         preorder(tmp);
+//       } else {
+//         storeList.push(NULL_KEY);
+//         if (stack.length > 0) {
+//           let parent = stack.pop();
+//           preorder(parent);
+//         }
+//       }
+//     }
+//   }
+//
+//   preorder(root);
+//   console.log(storeList);
+//   console.log("stack");
+//   console.log(stack);
+//
+//   // let l = serialize(root.left),
+//   //   r = serialize(root.right);
+//
+//
+//   console.log("Right vhecl")
+//   // return root.val + "," + l + "," + r;
+//   return JSON.stringify(storeList);
+// };
 
 /**
  * Decodes your encoded data to tree.
@@ -156,15 +163,15 @@ let x =
     //   )
     // )
 
-    // new TreeNode(1,
-    //   new TreeNode(2),
-    //   new TreeNode(3,
-    //     new TreeNode(4),
-    //     new TreeNode(5)
-    //   )
-    // )
+    new TreeNode(1,
+      new TreeNode(2),
+      new TreeNode(3,
+        new TreeNode(4),
+        new TreeNode(5)
+      )
+    )
 
-    null
+    // null
 
     // new TreeNode(1,
     //   null,
@@ -192,5 +199,5 @@ let x =
 
 console.log("serialise")
 console.log(x)
-console.log("deserialise")
-console.log(deserialize(x))
+// console.log("deserialise")
+// console.log(deserialize(x))
