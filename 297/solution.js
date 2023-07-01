@@ -1,10 +1,11 @@
 class TreeNode {
   constructor(val, left, right) {
-    this.val = (val === undefined ? 0 : val);
+    this.val = (val === undefined ? null : val);
     this.left = (left === undefined ? null : left);
     this.right = (right === undefined ? null : right);
   }
 }
+const NULL_KEY = "x";
 
 /**
  * Encodes a tree to a single string.
@@ -13,56 +14,10 @@ class TreeNode {
  * @return {string}
  */
 var serialize = function (root) {
-  let storeList = [[], []], stack = [];
+  if (root === null) return NULL_KEY;
+  let l = serialize(root.left), r = serialize(root.right);
 
-  // nlr
-  const preorder = (node) => {
-    if (node === null) return;
-    storeList[0].push(node.val);
-
-    if (node.left !== null) {
-      if (node.right !== null) {
-        stack.push(node.right);
-      }
-      let tmp = node.left;
-      preorder(tmp);
-    } else {
-      if (node.right !== null) {
-        let tmp = node.right;
-        preorder(tmp);
-      } else if (stack.length > 0) {
-        let parent = stack.pop();
-        preorder(parent);
-      }
-    }
-  }
-
-  preorder(root);
-
-  // lnr
-  stack = [];
-  const inorder = (node) => {
-    if (node === null) return;
-
-    if (node.left !== null) {
-      stack.push(node);
-      inorder(node.left);
-    } else {
-      storeList[1].push(node.val);
-      if (node.right !== null) {
-        inorder(node.right)
-      } else if (stack.length > 0) {
-        let parent = stack.pop();
-
-        parent.left = null;
-        inorder(parent);
-      }
-    }
-  }
-
-  inorder(root);
-
-  return JSON.stringify(storeList);
+  return root.val + "," + l + "," + r;
 };
 
 /**
@@ -72,22 +27,22 @@ var serialize = function (root) {
  * @return {TreeNode}
  */
 var deserialize = function (data) {
-  let [preorder, inorder] = JSON.parse(data);
+  if (data === NULL_KEY) return null;
+  let tree = new TreeNode(), list = data.split(",");
 
-  const constructTree = (po, io) => {
-    let curr = po[0], inorderIdx = io.indexOf(curr);
+  const buildTree = (node) => {
+    if (node === null) node = new TreeNode();
 
-    if (io.filter(item => item === curr).length > 1) inorderIdx = io.indexOf(curr, inorderIdx + 1);
-    // if (inorderIdx === 0 && io.length > 1) inorderIdx = io.indexOf(curr, inorderIdx + 1);
-    if (inorderIdx === -1) return null;
-    let tmpPo = [...po];
-    let tmpIo = [...io];
-    return new TreeNode(curr,
-      constructTree(po.splice(1, inorderIdx), io.splice(0, inorderIdx)),
-      constructTree(tmpPo.splice(inorderIdx + 1, tmpPo.length - 1), tmpIo.splice(inorderIdx + 1, tmpIo.length - 1))
-    )
+    let curr = list.shift();
+    if (curr === NULL_KEY) return null;
+
+    node.val = parseInt(curr);
+    node.left = buildTree(node.left)
+    node.right = buildTree(node.right)
+    return node;
   }
 
+  buildTree(tree);
 
-  return constructTree(preorder, inorder);
+  return tree;
 };

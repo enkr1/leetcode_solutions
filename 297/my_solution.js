@@ -1,11 +1,11 @@
 class TreeNode {
   constructor(val, left, right) {
-    this.val = (val === undefined ? 0 : val);
+    this.val = (val === undefined ? null : val);
     this.left = (left === undefined ? null : left);
     this.right = (right === undefined ? null : right);
   }
 }
-
+const NULL_KEY = "x";
 /**
  * Encodes a tree to a single string.
  *
@@ -13,73 +13,46 @@ class TreeNode {
  * @return {string}
  */
 var serialize = function (root) {
-  let storeList = [[], []], stack = [];
+  if (root === null) return NULL_KEY;
+  //   let storeList = [], stack = [];
+  //
+  //   // nlr
+  //   const preorder = (node) => {
+  //     storeList.push(node.val);
+  //
+  //     if (node.left !== null) {
+  //       if (node.right !== null) {
+  //         stack.push(node.right);
+  //       }
+  //       let tmp = node.left;
+  //       preorder(tmp);
+  //     } else {
+  //       storeList.push(NULL_KEY);
+  //
+  //       if (node.right !== null) {
+  //         let tmp = node.right;
+  //         preorder(tmp);
+  //       } else {
+  //         storeList.push(NULL_KEY);
+  //         if (stack.length > 0) {
+  //           let parent = stack.pop();
+  //           preorder(parent);
+  //         }
+  //       }
+  //     }
+  //   }
+  //
+  //   console.log("root")
+  //   console.log(root)
+  //   preorder(root);
+  //   console.log(storeList);
 
-  // nlr
-  const preorder = (node) => {
-    if (node === null) return;
-    // console.log("node")
-    // console.log(node)
-    // console.log(storeList)
-    storeList[0].push(node.val);
+  let l = serialize(root.left),
+    r = serialize(root.right);
 
-    if (node.left !== null) {
-      if (node.right !== null) {
-        stack.push(node.right);
-      }
-      let tmp = node.left;
-      preorder(tmp);
-    } else {
-      if (node.right !== null) {
-        let tmp = node.right;
-        preorder(tmp);
-      } else if (stack.length > 0) {
-        let parent = stack.pop();
-        console.log("parent")
-        console.log(parent)
-        preorder(parent);
-      }
-    }
-  }
 
-  console.log("root")
-  console.log(root)
-  preorder(root);
-  console.log("________________________________")
 
-  // lnr
-  stack = [];
-  const inorder = (node) => {
-    if (node === null) return;
-
-    console.log(`curr:${node.val}`)
-    if (node.left !== null) {
-      stack.push(node);
-      inorder(node.left);
-    } else {
-      storeList[1].push(node.val);
-      if (node.right !== null) {
-        inorder(node.right)
-      } else if (stack.length > 0) {
-        // storeList[1].push(node.val);
-        let parent = stack.pop();
-
-        console.log("stack")
-        console.log(stack)
-        console.log("parent")
-        console.log(parent)
-        parent.left = null;
-        inorder(parent);
-      }
-    }
-  }
-
-  inorder(root);
-  console.log("stack")
-  console.log(stack)
-
-  console.log(storeList);
-
+  return root.val + "," + l + "," + r;
   return JSON.stringify(storeList);
 };
 
@@ -90,64 +63,113 @@ var serialize = function (root) {
  * @return {TreeNode}
  */
 var deserialize = function (data) {
-  let deserialisedTree = new TreeNode();
-  let [preorder, inorder] = JSON.parse(data);
-  console.log("parsedData")
-  // start w pre
-  // pre: [4, 2, 1, 5, 3]
-  // in: [1, 2, 3, 4, 5]
-  console.log("pre:" + preorder)
-  console.log("in:" + inorder)
+
+  console.log("data");
+  console.log(data);
+  if (data === NULL_KEY) return null;
+  let tree = new TreeNode(), list = data.split(",");
+  console.log("list");
+  console.log(list);
+
+  const buildTree = (node) => {
+
+    // console.log("nodeVal");
+    // console.log(nodeVal);
+    console.log("node");
+    console.log(node);
+
+    // if (node === null) return null;
+    if (node === null) node = new TreeNode();
 
 
-  const constructTree = (po, io) => {
+    // if (list)
+    let curr = list.shift();
+    if (curr === NULL_KEY) return null;
 
-    console.log("po:" + po)
-    console.log("io:" + io)
-    let curr = po[0], inorderIdx = io.indexOf(curr);
+    node.val = parseInt(curr);
+    node.left = buildTree(node.left)
+    node.right = buildTree(node.right)
+    // node.left = buildTree(node.left, list)
+    // node.right = buildTree(node.right, list)
+    // node.left = buildTree(node.left, list.shift())
+    // node.right = buildTree(node.right, list.shift())
+    // node.left = new TreeNode()
+    // buildTree(node.left, list.shift())
+    // node.right = new TreeNode()
+    // buildTree(node.right, list.shift())
 
-    console.log(`1idx:${inorderIdx}`)
-    if (io.filter(item => item === curr).length > 1) inorderIdx = io.indexOf(curr, inorderIdx + 1);
-    // if (inorderIdx === 0 && io.length > 1) inorderIdx = io.indexOf(curr, inorderIdx + 1);
-    console.log(`2idx:${inorderIdx}`)
-    if (inorderIdx === -1) return null;
-    // deserialisedTree.val = curr; // idx
-    let tmpPo = [...po];
-    let tmpIo = [...io];
-    // console.log("l")
-    // console.log(po.splice(1, inorderIdx)) // exclusive
-    // console.log(io.splice(0, inorderIdx))
-    // console.log("r")
-    // console.log(tmpPo.splice(inorderIdx + 1, tmpPo.length - 1))
-    // console.log(tmpIo.splice(inorderIdx + 1, tmpIo.length - 1))
-
-    return new TreeNode(curr,
-      constructTree(po.splice(1, inorderIdx), io.splice(0, inorderIdx)),
-      constructTree(tmpPo.splice(inorderIdx + 1, tmpPo.length - 1), tmpIo.splice(inorderIdx + 1, tmpIo.length - 1))
-    )
-    // return deserialisedTree;
-    // deserialisedTree.right = constructTree(); // idx
-
-    // console.log("inorderIdx")
-    // console.log(inorderIdx)
+    return node;
   }
 
-  console.log("deserialisedTree")
+  buildTree(tree);
+  // buildTree(tree, list.shift());
 
-  return constructTree(preorder, inorder);
+  return tree;
 };
 
 /**
  * Your functions will be called as such:
  * deserialize(serialize(root));
  */
-
+var serializeDFS = function (root) {
+  const dfs = (node, str) => {
+    if (node == null) {
+      return str += "*,";
+    } else {
+      str += node.val + ",";
+      str = dfs(node.left, str);
+      str = dfs(node.right, str);
+    }
+    return str;
+  }
+  return dfs(root, "");
+};
+// 1,2,*,*,3,4,*,*,5,*,*,
+// serialise
+// [1,2,null,null,3,4,null,null,5,null,null,5,null,null,3,4,null,null,5,null,null,5,null,null]
 let x =
+  //[4,-7,-3,
+  //null,null,
+  //-9,-3,
+  // 9, -7,
+  //-4, null,
+  //6, null, -6, -6, null, null, 0, 6, 5, null, 9, null, null, -1, -4, null, null, null, -2]
   serialize(
-    new TreeNode(1,
-      null,
-      new TreeNode(2)
-    )
+
+    // new TreeNode(4,
+    //   new TreeNode(-7),
+    //   new TreeNode(-3,
+    //     new TreeNode(-9,
+    //       new TreeNode(9,
+    //       ),
+    //       new TreeNode(-7,
+    //         new TreeNode(-4,
+    //           new TreeNode(6,
+    //             new TreeNode(-6),
+    //             new TreeNode(-6)
+    //           )
+    //         ),
+    //         null
+    //       )
+    //     ),
+    //     new TreeNode(-3)
+    //   )
+    // )
+
+    // new TreeNode(1,
+    //   new TreeNode(2),
+    //   new TreeNode(3,
+    //     new TreeNode(4),
+    //     new TreeNode(5)
+    //   )
+    // )
+
+    null
+
+    // new TreeNode(1,
+    //   null,
+    //   new TreeNode(2)
+    // )
 
     // new TreeNode(3,
     //   new TreeNode(2, new TreeNode(3)),
@@ -169,4 +191,6 @@ let x =
   )
 
 console.log("serialise")
+console.log(x)
+console.log("deserialise")
 console.log(deserialize(x))
