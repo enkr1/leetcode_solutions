@@ -59,14 +59,15 @@
 // // x[1] = 2
 // console.log(x)
 //
-n = 5;
-const g =
-  // Array(n).fill([]);
-// Array(n).fill().map(() => []);
-Array.from({ length: n }, () => []);
-g[1].push(2)
 
-console.log(g)
+// n = 5;
+// const g =
+//   // Array(n).fill([]);
+// // Array(n).fill().map(() => []);
+// Array.from({ length: n }, () => []);
+// g[1].push(2)
+//
+// console.log(g)
 
 
 // Set
@@ -116,3 +117,10 @@ console.log(g)
 
 // Array
 // console.log(Array(26).fill(0));
+
+
+let x = [1, 2, 3]
+console.log(x)
+console.log("splicing index 1 from x")
+x.splice(1, 1)
+console.log(x)

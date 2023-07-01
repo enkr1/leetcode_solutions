@@ -4,7 +4,7 @@
  * @return {boolean}
  */
 const exist = (board, word) => {
-  let visit = new Set();
+  let visited = new Set();
 
   const expand = (r, c, i) => {
     if (i === word.length) return true;
@@ -14,11 +14,11 @@ const exist = (board, word) => {
       c === board[0].length ||
       r < 0 ||
       c < 0 ||
-      visit.has(`${r}${c}`) ||
+      visited.has(`${r}${c}`) ||
       word[i] !== board[r][c]
     ) return false;
 
-    visit.add(`${r}${c}`);
+    visited.add(`${r}${c}`);
     i++
 
     let res = expand(r, c + 1, i) ||
@@ -26,7 +26,7 @@ const exist = (board, word) => {
       expand(r, c - 1, i) ||
       expand(r - 1, c, i);
 
-    visit.delete(`${r}${c}`);
+    visited.delete(`${r}${c}`);
 
     return res;
   }
