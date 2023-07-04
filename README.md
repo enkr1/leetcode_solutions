@@ -49,6 +49,7 @@
 - [125. Valid Palindrome](./125/)
 - [141. Linked List Cycle](./141/)
 - [143. Reorder List](./143/)
+- [151. Reverse Words in a String](./151/)
 - [152. Maximum Product Subarray](./152/)
 - [153. Find Minimum in Rotated Sorted Array](./153/)
 - [190. Reverse Bits](./190/)
@@ -156,7 +157,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=345 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=151 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
