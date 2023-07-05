@@ -75,6 +75,7 @@
 - [345. Reverse Vowels of a String](./345/)
 - [371. Sum of Two Integers](./371/)
 - [374. Top K Frequent Elements](./374/)
+- [334. Increasing Triplet Subsequence](./334/)
 - [338. Counting Bits](./338/)
 - [383. Ransom Note](./383/)
 - [394. Decode String](./394/)
@@ -157,7 +158,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=151 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=334 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
