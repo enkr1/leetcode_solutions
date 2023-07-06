@@ -83,6 +83,7 @@
 - [417. Pacific Atlantic Water Flow](./417/)
 - [424. Longest Repeating Character Replacement](./424/)
 - [435. Non-overlapping Intervals](./435/)
+- [443. String Compression](./443/)
 - [530. Minimum Absolute Difference in BST](./530/)
 - [572. Subtree of Another Tree](./572/)
 - [605. Can Place Flowers](./605/)
@@ -158,7 +159,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=334 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=443 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
