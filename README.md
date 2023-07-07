@@ -70,6 +70,7 @@
 - [242. Valid Anagram](./242/)
 - [268. Missing Number](./268/)
 - [271. Encode and Decode Strings (Premium)](./271/)
+- [283. Move Zeroes](./283/)
 - [295. Find Median from Data Stream](./295/)
 - [297. Serialize and Deserialize Binary Tree](./297/)
 - [345. Reverse Vowels of a String](./345/)
@@ -159,7 +160,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=443 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=283 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
