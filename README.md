@@ -79,6 +79,7 @@
 - [334. Increasing Triplet Subsequence](./334/)
 - [338. Counting Bits](./338/)
 - [383. Ransom Note](./383/)
+- [392. Is Subsequence](./392/)
 - [394. Decode String](./394/)
 - [412. Fizz Buzz](./412/)
 - [417. Pacific Atlantic Water Flow](./417/)
@@ -160,7 +161,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=283 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=392 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
