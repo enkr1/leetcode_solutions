@@ -102,6 +102,7 @@
 - [1071. Greatest Common Divisor of Strings](./1071/)
 - [1161. Maximum Level Sum of a Binary Tree](./1161/)
 - [1187. Make Array Strictly Increasing](./1187/)
+- [1207. Unique Number of Occurrences](./1207/)
 - [1342. Number of Steps to Reduce a Number to Zero](./1342/)
 - [1365. How Many Numbers Are Smaller Than the Current Number](./1365/)
 - [1431. Kids With the Greatest Number of Candies](./1431/)
@@ -169,7 +170,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=2215 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=1207 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
