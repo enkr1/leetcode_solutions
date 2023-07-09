@@ -112,6 +112,7 @@
 - [1572. Matrix Diagonal Sum](./1572/)
 - [1672. Richest Customer Wealth](./1672/)
 - [1679. Max Number of K-Sum Pairs](./1679/)
+- [1732. Find the Highest Altitude](./1732/)
 - [1768. Merge Strings Alternately](./1768/)
 - [1791. Find Center of Star Graph](./1791/)
 - [1909. Remove One Element to Make the Array Strictly Increasing](./1909/)
@@ -166,7 +167,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=1493 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=1732 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
