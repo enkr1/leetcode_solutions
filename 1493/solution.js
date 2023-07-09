@@ -14,16 +14,16 @@ var longestSubarray = function (nums) {
 
       if (k < 0) {
 
-        while (l < r) {
+        while (k < 0) {
           if (nums[l] === 0) {
             l++;
+            k++;
             break;
           }
 
           l++;
         }
 
-        k++;
         tmpMax = r - l + 1
       }
     }

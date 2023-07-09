@@ -16,16 +16,17 @@ var longestSubarray = function (nums) {
 
       if (k < 0) {
         console.log(`~> k: ${k}`)
-        // l++;
-        while (l < r) {
+
+        while (k < 0) {
           if (nums[l] === 0) {
             l++;
+            k++;
             break;
           }
 
           l++;
         }
-        k++;
+
         tmpMax = r - l + 1
         console.log(`~> new l: ${l}, new tmpMax: ${tmpMax}`)
       }
@@ -34,6 +35,7 @@ var longestSubarray = function (nums) {
     max = Math.max(max, tmpMax)
     r++;
   }
+
   console.log(`~> k: ${k}`)
 
   return max - DELETE_COUNT;
