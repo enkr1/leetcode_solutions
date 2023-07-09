@@ -96,6 +96,7 @@
 - [832. Flipping an Image](./832/)
 - [876. Middle of the Linked List](./876/)
 - [997. Find the Town Judge](./997/)
+- [1004. Max Consecutive Ones III](./1004/)
 - [1027. Longest Arithmetic Subsequence](./1027/)
 - [1071. Greatest Common Divisor of Strings](./1071/)
 - [1161. Maximum Level Sum of a Binary Tree](./1161/)
@@ -164,7 +165,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=1456 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=1004 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
