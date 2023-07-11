@@ -91,9 +91,10 @@
 - [605. Can Place Flowers](./605/)
 - [643. Maximum Average Subarray I](./643/)
 - [647. Palindromic Substrings](./647/)
-- [724. Find Pivot Index](./724/)
-- [771. Jewels and Stones](./771/)
 - [714. Best Time to Buy and Sell Stock with Transaction Fee](./714/)
+- [724. Find Pivot Index](./724/)
+- [735. Asteroid Collision](./735/)
+- [771. Jewels and Stones](./771/)
 - [832. Flipping an Image](./832/)
 - [876. Middle of the Linked List](./876/)
 - [997. Find the Town Judge](./997/)
@@ -173,7 +174,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=2390 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=735 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
