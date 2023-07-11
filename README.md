@@ -124,6 +124,7 @@
 - [2215. Find the Difference of Two Arrays](./2215/)
 - [2352. Equal Row and Column Pairs](./2352/)
 - [2373. Largest Local Values in a Matrix](./2373/)
+- [2390. Removing Stars From a String](./2390/)
 - [2448. Minimum Cost to Make Array Equal](./2448/)
 
 ---
@@ -172,7 +173,7 @@ Batch create:
 NOTE: JS IS HERE
 -->
 ```ssh
-chapter=2352 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+chapter=2390 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 

@@ -1,0 +1,24 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var removeStars = function (s) {
+  let result = []
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "*") {
+      result.pop();
+    } else {
+      result.push(s[i])
+    }
+  }
+
+  return result.join("")
+};
+
+
+let x =
+  // removeStars("erase*****")
+  removeStars("leet**cod*e")
+
+console.log("Es")
+console.log(x)
