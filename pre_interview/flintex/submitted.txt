@@ -1,0 +1,180 @@
+package shortestPath;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Set;
+
+public class Company {
+
+    // IMPORTANT: DO NOT MODIFY THIS CLASS
+    public static class Employee {
+
+        private final int id;
+        private final String name;
+        private List<Employee> reports;
+
+        public Employee(int id, String name) {
+            this.id = id;
+            this.name = name;
+            this.reports = new ArrayList<Employee>();
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public List<Employee> getReports() {
+            return reports;
+        }
+
+        public void addReport(Employee employee) {
+            reports.add(employee);
+        }
+
+    }
+
+    /*
+     * Read the attached PDF for more explanation about the problem
+     * Note: Don't modify the signature of this function
+     * @param ceo
+     *
+     * @param firstEmployee - starting node
+     *
+     * @param secondEmployee - destination node
+     *
+     * @return the shortest path from First Employee to the Second Employee. Separated by " > " and return null if not found.
+     */
+    @SuppressWarnings("unused")
+    public static String shortestPath(Employee ceo, Employee firstEmployee, Employee secondEmployee) { // The time complexity: O(v + e); space complexity is: O(v + e)
+        /*
+          * My thought process:
+          * when i see the word "shortest path", the first thing that comes into my mind is Djikstra's algorithm, but this is just simply hierarchical structure without distance/priority. This can be viewed as an undirected graph problem that each employee is a node, and reporting relationship forms the edges. (connectivity)
+          *
+          * A few assumptions:
+          * - the ceo, first and second employees always exists in the organisation (graph) - otherwise not found case would be needed
+          * - its an undirected graph as it is a hierarchical layout we do not need to handle cyclical behaviour
+          * - there is no self report such as Bryan manages Bryan - my handling is just returning it's path which is the employee name when the same guy is entered for both 1st and 2nd employee
+          * - edge cases like: no relationship between two employees under the CEO, we can just simply return null
+          *
+          */
+
+        Map<Employee, List<Employee>> graph = new HashMap<>(); // adjacency list
+
+        // space: O(v)
+        Set<Employee> visited = new HashSet<>();
+
+        // space: O(v)
+        Queue<Employee> queue = new LinkedList<>(); // LinkedList is more efficient for BFS as ArrayList's removal is O(n); LinkedList is O(1) - as we are not accessing any of the elements at specific index (ArrayList) which costs O(n), so it's better to use a LinkedList.
+
+        // space: O(v)
+        Map<Employee, Employee> prev = new HashMap<>(); // for tracing back the shortest path when we find that 1st == 2nd
+
+        // building the graph (adjacency list to store relationships btw employees)
+        // time: O(v + e) - v: vertices, e: edges; space: O(v + e)
+        addToGraph(graph, ceo);
+        System.out.println(graph);
+
+        queue.add(firstEmployee);
+
+        // BFS - to find SP btw 2 nodes
+        // time: O(v + e)
+        while (!queue.isEmpty()) {
+            Employee current = queue.poll();
+            visited.add(current); // visit the node
+
+            if (current.equals(secondEmployee)) {
+                StringBuilder path = new StringBuilder(); // build and return the path from 1st to 2nd employee
+
+                while (current != null) {
+                    if (!path.isEmpty()) {
+                        path.insert(0, " > "); // prepend a " > " before appending the name ONLY when it is not empty.
+                    }
+                    path.insert(0, current.getName()); // prepend name before the path
+                    current = prev.get(current); // get the next guy
+                }
+
+                return path.toString();
+            }
+
+            // exit (continue) early if not found in the adjacency list (graph)
+            if (!graph.containsKey(current)) {
+              continue;
+            }
+
+            // Find the connection(s)
+            // 0 - Gabriel -> G => [E];
+            // 1 - Eunice ->  E => [J, G, J]; // Jimmy is one of them. - later the cond above should match and return
+            // in short, prev is more of like the previous visited lookup map, if we can find the 1st == 2nd employees, we can simply look back up to form the path, like:
+            // e.g. Gabriel to fnd Jimmy
+            // - the final map: {Eugene=Jose, Dennis=Jose, Eunice=Gabriel, Jose=Eunice, Jimmy=Eunice, Bryan=Jose}
+            // when we find Jimmy, we can look back up from Jimmy -> Eunice -> Gabriel
+            for (Employee next : graph.get(current)) {
+                if (!visited.contains(next)) {
+                    queue.add(next);
+                    prev.put(next, current);
+                }
+            }
+        }
+
+        return null; // There is no path between firstEmployee and secondEmployee
+    }
+
+    // Helper function to add relationships to the graph
+    private static void addToGraph(Map<Employee, List<Employee>> graph, Employee employee) {
+        if (!graph.containsKey(employee)) {
+            graph.put(employee, new ArrayList<>());
+        }
+
+        for (Employee report : employee.getReports()) {
+            if (!graph.containsKey(report)) {
+                graph.put(report, new ArrayList<>());
+            }
+
+            graph.get(employee).add(report);
+            graph.get(report).add(employee);
+            addToGraph(graph, report);
+        }
+    }
+
+    public static void main(String[] args) {
+        Employee Eugene = new Employee(1, "Eugene");
+        Employee Jose = new Employee(2, "Jose");
+        Employee Kelvin = new Employee(3, "Kelvin");
+        Employee Terence = new Employee(4, "Terence");
+        Employee Dennis = new Employee(5, "Dennis");
+        Employee Eunice = new Employee(6, "Eunice");
+        Employee Bryan = new Employee(7, "Bryan");
+        Employee Gabriel = new Employee(8, "Gabriel");
+        Employee Jimmy = new Employee(9, "Jimmy");
+
+        Eugene.addReport(Jose);
+        Eugene.addReport(Kelvin);
+        Eugene.addReport(Terence);
+
+        Jose.addReport(Dennis);
+        Jose.addReport(Eunice);
+        Jose.addReport(Bryan);
+
+        Eunice.addReport(Gabriel);
+        Eunice.addReport(Jimmy);
+
+        // Test cases
+        System.out.println(shortestPath(Eugene, Gabriel, Jimmy));  // Gabriel > Eunice > Jimmy
+        System.out.println(shortestPath(Eugene, Jimmy, Bryan));   // Jimmy > Eunice > Jose > Bryan
+        System.out.println(shortestPath(Eugene, Jimmy, Kelvin));  // Jimmy > Eunice > Jose > Eugene > Kelvin
+        System.out.println(shortestPath(Eugene, Eunice, Jimmy));  // Eunice > Jimmy
+        System.out.println(shortestPath(Jose, Gabriel, Kelvin));  // null - out of CEO tree
+        System.out.println(shortestPath(Jose, Gabriel, Dennis));  // Gabriel > Eunice > Jose > Dennis
+        System.out.println(shortestPath(Eugene, Gabriel, Gabriel));  // Gabriel
+        System.out.println(shortestPath(Kelvin, Gabriel, Terence));  // null - not in the tree
+    }
+};
