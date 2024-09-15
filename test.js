@@ -119,8 +119,16 @@
 // console.log(Array(26).fill(0));
 
 
-let x = [1, 2, 3]
+// let x = [1, 2, 3]
+// console.log(x)
+// console.log("splicing index 1 from x")
+// x.splice(1, 1)
+// console.log(x)
+
+let x = 1;
+console.log("x")
 console.log(x)
-console.log("splicing index 1 from x")
-x.splice(1, 1)
+
+x = [1, 2, 3];
+console.log("> x")
 console.log(x)

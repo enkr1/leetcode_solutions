@@ -174,8 +174,8 @@ Batch create:
 <!--
 NOTE: JS IS HERE
 -->
-```ssh
-chapter=743 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
+```sh
+chapter=947 && mkdir ./$chapter && touch ./$chapter/my_solution.js && touch ./$chapter/solution.js && alias x="node ./$chapter/my_solution.js"
 ```
 > then you can use `x` for quick debug.
 
